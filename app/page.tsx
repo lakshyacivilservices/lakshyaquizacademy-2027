@@ -1,37 +1,69 @@
-const exams = [
-  {
-    name: "UPPSC",
-    subjects: [
-      "History",
-      "Geography",
-      "Indian Polity",
-      "Economy",
-      "Environment",
-      "Science",
-      "Current Affairs",
-      "UP Special",
-    ],
-  },
-  {
-    name: "UGC NET Psychology",
-    subjects: [
-      "Research Methods",
-      "Biopsychology",
-      "Learning",
-      "Memory",
-      "Social Psychology",
-    ],
-  },
-  {
-    name: "SSC GK",
-    subjects: [
-      "History",
-      "Polity",
-      "Geography",
-      "Economics",
-      "Science",
-    ],
-  },
+const uppscSubjects = [
+  "History",
+  "Geography",
+  "Indian Polity",
+  "Economy",
+  "Environment",
+  "General Science",
+  "Current Affairs",
+  "UP Special",
+  "Hindi Sahitya",
+];
+
+const uppscMains = [
+  "General Hindi",
+  "Essay",
+  "GS Paper 1",
+  "GS Paper 2",
+  "GS Paper 3",
+  "GS Paper 4",
+];
+
+const uppscInterview = [
+  "Personality Test",
+  "Current Affairs",
+  "UP Awareness",
+  "Communication Skills",
+];
+
+const ugcNetSubjects = [
+  "General Paper on Teaching & Research Aptitude",
+  "Economics",
+  "Philosophy",
+  "Psychology",
+  "Sociology",
+  "History",
+  "Anthropology",
+  "Commerce",
+  "Education",
+  "Management",
+  "Human Resource Management",
+  "Environmental Sciences",
+];
+
+const aiSubjects = [
+  "AI Basics",
+  "Machine Learning",
+  "Deep Learning",
+  "Prompt Engineering",
+];
+
+const dataScienceSubjects = [
+  "Python",
+  "Statistics",
+  "Pandas",
+  "Data Analytics",
+  "SQL",
+];
+
+const gkTricks = [
+  "History Tricks",
+  "Polity Tricks",
+  "Geography Tricks",
+  "Science Tricks",
+  "Current Affairs Tricks",
+  "UP GK Tricks",
+  "UPPSC Tricks",
 ];
 
 export default function Home() {
@@ -45,7 +77,8 @@ export default function Home() {
     >
       <header
         style={{
-          background: "#0f172a",
+          background:
+            "linear-gradient(90deg,#020617,#1d4ed8,#7c3aed)",
           color: "white",
           padding: "20px 40px",
           display: "flex",
@@ -54,76 +87,177 @@ export default function Home() {
           position: "sticky",
           top: 0,
           zIndex: 1000,
+          flexWrap: "wrap",
         }}
       >
         <h1>🚀 Lakshya Academy</h1>
 
-        <nav
+        <div
           style={{
             display: "flex",
-            gap: "30px",
+            gap: "25px",
+            flexWrap: "wrap",
           }}
         >
-          {exams.map((exam, index) => (
+          <details>
+            <summary>UPPSC Pre</summary>
+
             <div
-              key={index}
               style={{
-                position: "relative",
+                position: "absolute",
+                background: "white",
+                color: "black",
+                padding: "20px",
+                width: "300px",
+                borderRadius: "14px",
               }}
             >
-              <details>
-                <summary
-                  style={{
-                    cursor: "pointer",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                  }}
-                >
-                  {exam.name}
-                </summary>
-
-                <div
-                  style={{
-                    position: "absolute",
-                    background: "white",
-                    color: "black",
-                    padding: "15px",
-                    borderRadius: "12px",
-                    marginTop: "10px",
-                    width: "250px",
-                    boxShadow:
-                      "0 10px 30px rgba(0,0,0,0.2)",
-                  }}
-                >
-                  {exam.subjects.map(
-                    (subject, i) => (
-                      <a
-                        key={i}
-                        href="#"
-                        style={{
-                          display: "block",
-                          padding: "10px",
-                          textDecoration: "none",
-                          color: "#111827",
-                          borderBottom:
-                            "1px solid #e5e7eb",
-                        }}
-                      >
-                        {subject} MCQs
-                      </a>
-                    )
-                  )}
-                </div>
-              </details>
+              {uppscSubjects.map((item, i) => (
+                <p key={i}>{item} MCQs</p>
+              ))}
             </div>
-          ))}
-        </nav>
+          </details>
+
+          <details>
+            <summary>UPPSC Mains</summary>
+
+            <div
+              style={{
+                position: "absolute",
+                background: "white",
+                color: "black",
+                padding: "20px",
+                width: "300px",
+                borderRadius: "14px",
+              }}
+            >
+              {uppscMains.map((item, i) => (
+                <p key={i}>{item}</p>
+              ))}
+            </div>
+          </details>
+
+          <details>
+            <summary>UPPSC Interview</summary>
+
+            <div
+              style={{
+                position: "absolute",
+                background: "white",
+                color: "black",
+                padding: "20px",
+                width: "300px",
+                borderRadius: "14px",
+              }}
+            >
+              {uppscInterview.map((item, i) => (
+                <p key={i}>{item}</p>
+              ))}
+            </div>
+          </details>
+
+          <details>
+            <summary>UGC NET</summary>
+
+            <div
+              style={{
+                position: "absolute",
+                background: "white",
+                color: "black",
+                padding: "20px",
+                width: "350px",
+                borderRadius: "14px",
+              }}
+            >
+              {ugcNetSubjects.map((item, i) => (
+                <p key={i}>{item}</p>
+              ))}
+            </div>
+          </details>
+
+          <details>
+            <summary>Artificial Intelligence</summary>
+
+            <div
+              style={{
+                position: "absolute",
+                background: "white",
+                color: "black",
+                padding: "20px",
+                width: "300px",
+                borderRadius: "14px",
+              }}
+            >
+              {aiSubjects.map((item, i) => (
+                <p key={i}>{item} MCQs</p>
+              ))}
+            </div>
+          </details>
+
+          <details>
+            <summary>Data Science</summary>
+
+            <div
+              style={{
+                position: "absolute",
+                background: "white",
+                color: "black",
+                padding: "20px",
+                width: "300px",
+                borderRadius: "14px",
+              }}
+            >
+              {dataScienceSubjects.map((item, i) => (
+                <p key={i}>{item} MCQs</p>
+              ))}
+            </div>
+          </details>
+
+          <details>
+            <summary>GK Tricks</summary>
+
+            <div
+              style={{
+                position: "absolute",
+                background: "white",
+                color: "black",
+                padding: "20px",
+                width: "300px",
+                borderRadius: "14px",
+              }}
+            >
+              {gkTricks.map((item, i) => (
+                <p key={i}>{item}</p>
+              ))}
+            </div>
+          </details>
+
+          <details>
+            <summary>Current Affairs</summary>
+
+            <div
+              style={{
+                position: "absolute",
+                background: "white",
+                color: "black",
+                padding: "20px",
+                width: "300px",
+                borderRadius: "14px",
+              }}
+            >
+              <p>Daily Current Affairs</p>
+              <p>Weekly Current Affairs</p>
+              <p>Monthly PDFs</p>
+              <p>UP Current Affairs</p>
+            </div>
+          </details>
+        </div>
       </header>
 
       <section
         style={{
           background:
-            "linear-gradient(135deg,#2563eb,#06b6d4,#7c3aed)",
+            "linear-gradient(135deg,#2563eb,#7c3aed,#06b6d4)",
           color: "white",
           padding: "120px 40px",
           textAlign: "center",
@@ -135,7 +269,7 @@ export default function Home() {
             marginBottom: "20px",
           }}
         >
-          India's Premium Exam MCQ Platform 🎯
+          India's Advanced MCQ Platform 🎯
         </h2>
 
         <p
@@ -145,9 +279,9 @@ export default function Home() {
             margin: "auto",
           }}
         >
-          Practice MCQs for UPPSC, UGC NET,
-          SSC, Psychology and all major
-          competitive exams.
+          UPPSC • UGC NET • AI • Data Science
+          • Psychology • Hindi Sahitya •
+          Current Affairs
         </p>
 
         <button
@@ -157,10 +291,9 @@ export default function Home() {
             color: "white",
             border: "none",
             padding: "20px 40px",
-            borderRadius: "14px",
-            fontSize: "22px",
+            borderRadius: "16px",
+            fontSize: "24px",
             fontWeight: "bold",
-            cursor: "pointer",
           }}
         >
           Start Practicing →
@@ -170,117 +303,45 @@ export default function Home() {
       <section
         style={{
           padding: "60px 40px",
+          background: "white",
         }}
       >
         <h2
           style={{
-            fontSize: "40px",
+            textAlign: "center",
             marginBottom: "30px",
           }}
         >
-          Popular Exams
+          Follow Lakshya Academy 🚀
         </h2>
 
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(300px,1fr))",
-            gap: "30px",
+            display: "flex",
+            justifyContent: "center",
+            gap: "20px",
+            flexWrap: "wrap",
           }}
         >
-          {exams.map((exam, index) => (
-            <div
-              key={index}
-              style={{
-                background: "white",
-                padding: "30px",
-                borderRadius: "20px",
-                boxShadow:
-                  "0 10px 30px rgba(0,0,0,0.1)",
-              }}
-            >
-              <h3
-                style={{
-                  fontSize: "28px",
-                  marginBottom: "20px",
-                }}
-              >
-                {exam.name}
-              </h3>
-
-              {exam.subjects.map(
-                (subject, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      padding: "12px",
-                      background: "#eff6ff",
-                      marginBottom: "10px",
-                      borderRadius: "10px",
-                    }}
-                  >
-                    {subject} MCQs
-                  </div>
-                )
-              )}
-            </div>
-          ))}
+          <a href="#">YouTube</a>
+          <a href="#">WhatsApp</a>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Amazon KDP</a>
+          <a href="#">Gumroad</a>
+          <a href="#">eBooks</a>
         </div>
       </section>
 
       <footer
         style={{
-          background: "#0f172a",
+          background: "#020617",
           color: "white",
-          padding: "50px 40px",
-          marginTop: "50px",
+          textAlign: "center",
+          padding: "30px",
         }}
       >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(200px,1fr))",
-            gap: "30px",
-          }}
-        >
-          <div>
-            <h3>Exams</h3>
-            <p>UPPSC</p>
-            <p>UGC NET</p>
-            <p>SSC</p>
-          </div>
-
-          <div>
-            <h3>Subjects</h3>
-            <p>History</p>
-            <p>Polity</p>
-            <p>Psychology</p>
-          </div>
-
-          <div>
-            <h3>Resources</h3>
-            <p>MCQs</p>
-            <p>Notes</p>
-            <p>Current Affairs</p>
-          </div>
-
-          <div>
-            <h3>About</h3>
-            <p>Lakshya Academy</p>
-            <p>India's Exam Platform</p>
-          </div>
-        </div>
-
-        <p
-          style={{
-            textAlign: "center",
-            marginTop: "40px",
-          }}
-        >
-          © 2026 Lakshya Civil Services Academy
-        </p>
+        © 2026 Lakshya Civil Services Academy
       </footer>
     </main>
   );
