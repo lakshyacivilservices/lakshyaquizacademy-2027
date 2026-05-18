@@ -2,459 +2,991 @@
 
 import { useState } from "react";
 
-const examData = [
+const platformData = [
   {
-    id: "uppsc",
-    title: "UPPSC PRE",
+    category: "Home",
+
     color: "#2563eb",
 
     subjects: [
-      "Ancient History",
-      "Modern History",
-      "Indian Geography",
-      "World Geography",
-      "Indian Polity",
-      "Economy",
-      "Environment",
-      "General Science",
-      "Current Affairs",
-      "UP Special",
-      "Hindi Sahitya",
-      "NCERT MCQs",
-    ],
-
-    mcqs: [
       {
-        q: "Who founded the Maurya Empire?",
-        o: [
-          "Ashoka",
-          "Chandragupta Maurya",
-          "Harsha",
-          "Kanishka",
-        ],
-        a: "Chandragupta Maurya",
-      },
+        name: "Daily MCQs",
 
-      {
-        q: "Which river is called the Ganga of South India?",
-        o: [
-          "Godavari",
-          "Krishna",
-          "Kaveri",
-          "Narmada",
+        mcqs: [
+          {
+            q: "Capital of India?",
+            options: [
+              "Delhi",
+              "Mumbai",
+              "Lucknow",
+              "Agra",
+            ],
+            answer: "Delhi",
+          },
+
+          {
+            q: "Largest Ocean?",
+            options: [
+              "Pacific",
+              "Indian",
+              "Atlantic",
+              "Arctic",
+            ],
+            answer: "Pacific",
+          },
+
+          {
+            q: "CPU stands for?",
+            options: [
+              "Central Processing Unit",
+              "Computer Program Unit",
+              "Central Program User",
+              "None",
+            ],
+            answer:
+              "Central Processing Unit",
+          },
+
+          {
+            q: "Fastest land animal?",
+            options: [
+              "Lion",
+              "Tiger",
+              "Cheetah",
+              "Horse",
+            ],
+            answer: "Cheetah",
+          },
+
+          {
+            q: "Who wrote Ramayana?",
+            options: [
+              "Kalidas",
+              "Valmiki",
+              "Kabir",
+              "Tulsidas",
+            ],
+            answer: "Valmiki",
+          },
         ],
-        a: "Godavari",
       },
     ],
   },
 
   {
-    id: "mains",
-    title: "UPPSC MAINS",
-    color: "#7c3aed",
+    category: "UPPSC",
+
+    color: "#2563eb",
 
     subjects: [
-      "General Hindi",
-      "Essay",
-      "GS Paper 1",
-      "GS Paper 2",
-      "GS Paper 3",
-      "GS Paper 4",
-    ],
-
-    mcqs: [
       {
-        q: "Essay paper is of how many marks in UPPSC?",
-        o: ["100", "150", "200", "300"],
-        a: "150",
+        name: "Ancient History",
+
+        mcqs: [
+          {
+            q: "Founder of Maurya Empire?",
+            options: [
+              "Ashoka",
+              "Chandragupta Maurya",
+              "Harsha",
+              "Kanishka",
+            ],
+            answer:
+              "Chandragupta Maurya",
+          },
+
+          {
+            q: "Who wrote Arthashastra?",
+            options: [
+              "Chanakya",
+              "Kabir",
+              "Kalidas",
+              "None",
+            ],
+            answer: "Chanakya",
+          },
+
+          {
+            q: "Nalanda University was in?",
+            options: [
+              "UP",
+              "Delhi",
+              "Bihar",
+              "MP",
+            ],
+            answer: "Bihar",
+          },
+
+          {
+            q: "Ashoka belonged to?",
+            options: [
+              "Maurya Dynasty",
+              "Gupta Dynasty",
+              "Kushan Dynasty",
+              "Slave Dynasty",
+            ],
+            answer:
+              "Maurya Dynasty",
+          },
+
+          {
+            q: "Vedas are written in?",
+            options: [
+              "Hindi",
+              "Sanskrit",
+              "Pali",
+              "Urdu",
+            ],
+            answer: "Sanskrit",
+          },
+        ],
       },
 
       {
-        q: "GS Paper 4 is related to?",
-        o: [
-          "Science",
-          "History",
-          "Ethics",
-          "Geography",
+        name: "Indian Geography",
+
+        mcqs: [
+          {
+            q: "Capital of UP?",
+            options: [
+              "Kanpur",
+              "Lucknow",
+              "Agra",
+              "Varanasi",
+            ],
+            answer: "Lucknow",
+          },
+
+          {
+            q: "Largest state in India?",
+            options: [
+              "UP",
+              "Rajasthan",
+              "MP",
+              "Bihar",
+            ],
+            answer: "Rajasthan",
+          },
+
+          {
+            q: "Indian desert?",
+            options: [
+              "Thar",
+              "Sahara",
+              "Gobi",
+              "None",
+            ],
+            answer: "Thar",
+          },
+
+          {
+            q: "Highest mountain peak?",
+            options: [
+              "K2",
+              "Everest",
+              "Kanchenjunga",
+              "Nanda Devi",
+            ],
+            answer: "Everest",
+          },
+
+          {
+            q: "Ganga originates from?",
+            options: [
+              "Gangotri",
+              "Yamunotri",
+              "Badrinath",
+              "Kedarnath",
+            ],
+            answer: "Gangotri",
+          },
         ],
-        a: "Ethics",
       },
     ],
   },
 
   {
-    id: "ugcnet",
-    title: "UGC NET",
+    category: "Research Methodology",
+
+    color: "#ec4899",
+
+    subjects: [
+      {
+        name: "Research Basics",
+
+        mcqs: [
+          {
+            q: "Research starts with?",
+            options: [
+              "Problem",
+              "Book",
+              "Data",
+              "Analysis",
+            ],
+            answer: "Problem",
+          },
+
+          {
+            q: "SPSS is used for?",
+            options: [
+              "Statistics",
+              "Cooking",
+              "Gaming",
+              "Drawing",
+            ],
+            answer: "Statistics",
+          },
+
+          {
+            q: "Hypothesis means?",
+            options: [
+              "Fact",
+              "Assumption",
+              "Law",
+              "Theory",
+            ],
+            answer: "Assumption",
+          },
+
+          {
+            q: "Sampling means?",
+            options: [
+              "Population",
+              "Subset",
+              "Experiment",
+              "Survey",
+            ],
+            answer: "Subset",
+          },
+
+          {
+            q: "Qualitative research uses?",
+            options: [
+              "Words",
+              "Numbers",
+              "Graphs",
+              "Formula",
+            ],
+            answer: "Words",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    category: "UGC NET",
+
     color: "#9333ea",
 
     subjects: [
-      "Psychology",
-      "Sociology",
-      "Anthropology",
-      "Education",
-      "Management",
-      "Environmental Sciences",
-    ],
-
-    mcqs: [
       {
-        q: "Who proposed Classical Conditioning?",
-        o: [
-          "Skinner",
-          "Pavlov",
-          "Freud",
-          "Bandura",
+        name: "Psychology",
+
+        mcqs: [
+          {
+            q: "Who proposed Classical Conditioning?",
+            options: [
+              "Freud",
+              "Pavlov",
+              "Piaget",
+              "Skinner",
+            ],
+            answer: "Pavlov",
+          },
+
+          {
+            q: "IQ stands for?",
+            options: [
+              "Internal Quality",
+              "Intelligence Quotient",
+              "Intelligence Query",
+              "None",
+            ],
+            answer:
+              "Intelligence Quotient",
+          },
+
+          {
+            q: "Father of Psychoanalysis?",
+            options: [
+              "Freud",
+              "Skinner",
+              "Bandura",
+              "Piaget",
+            ],
+            answer: "Freud",
+          },
+
+          {
+            q: "Memory is related to?",
+            options: [
+              "Learning",
+              "Storage",
+              "Recall",
+              "All",
+            ],
+            answer: "All",
+          },
+
+          {
+            q: "Behaviorism was given by?",
+            options: [
+              "Watson",
+              "Freud",
+              "Piaget",
+              "Maslow",
+            ],
+            answer: "Watson",
+          },
         ],
-        a: "Pavlov",
-      },
-
-      {
-        q: "UGC NET Paper 1 is related to?",
-        o: [
-          "Research Aptitude",
-          "Math",
-          "Science",
-          "History",
-        ],
-        a: "Research Aptitude",
-      },
-    ],
-  },
-
-  {
-    id: "heo",
-    title: "HEALTH EDUCATION OFFICER",
-    color: "#16a34a",
-
-    subjects: [
-      "Health Education",
-      "Public Health",
-      "Nutrition",
-      "Mental Health",
-      "Family Welfare",
-    ],
-
-    mcqs: [
-      {
-        q: "WHO stands for?",
-        o: [
-          "World Health Organization",
-          "World Human Office",
-          "Health World Order",
-          "None",
-        ],
-        a: "World Health Organization",
-      },
-
-      {
-        q: "Balanced diet contains?",
-        o: [
-          "Only proteins",
-          "Only vitamins",
-          "All nutrients",
-          "Only carbs",
-        ],
-        a: "All nutrients",
       },
     ],
   },
 
   {
-    id: "ai",
-    title: "ARTIFICIAL INTELLIGENCE",
+    category:
+      "Artificial Intelligence",
+
     color: "#0ea5e9",
 
     subjects: [
-      "Machine Learning",
-      "Deep Learning",
-      "Prompt Engineering",
-      "ChatGPT",
-    ],
-
-    mcqs: [
       {
-        q: "AI stands for?",
-        o: [
-          "Artificial Intelligence",
-          "Advanced Internet",
-          "Auto Input",
-          "None",
+        name: "AI Basics",
+
+        mcqs: [
+          {
+            q: "AI stands for?",
+            options: [
+              "Artificial Intelligence",
+              "Advanced Internet",
+              "Auto Information",
+              "None",
+            ],
+            answer:
+              "Artificial Intelligence",
+          },
+
+          {
+            q: "ChatGPT developed by?",
+            options: [
+              "Google",
+              "OpenAI",
+              "Meta",
+              "Microsoft",
+            ],
+            answer: "OpenAI",
+          },
+
+          {
+            q: "ML means?",
+            options: [
+              "Machine Learning",
+              "Main Logic",
+              "Machine Logic",
+              "None",
+            ],
+            answer:
+              "Machine Learning",
+          },
+
+          {
+            q: "AI works mainly on?",
+            options: [
+              "Data",
+              "Books",
+              "Food",
+              "Music",
+            ],
+            answer: "Data",
+          },
+
+          {
+            q: "Deep Learning uses?",
+            options: [
+              "Neural Networks",
+              "Cooking",
+              "Painting",
+              "Gaming",
+            ],
+            answer:
+              "Neural Networks",
+          },
         ],
-        a: "Artificial Intelligence",
-      },
-
-      {
-        q: "ChatGPT is developed by?",
-        o: [
-          "Google",
-          "Microsoft",
-          "OpenAI",
-          "Meta",
-        ],
-        a: "OpenAI",
-      },
-    ],
-  },
-
-  {
-    id: "datascience",
-    title: "DATA SCIENCE",
-    color: "#ea580c",
-
-    subjects: [
-      "Python",
-      "Pandas",
-      "Statistics",
-      "SQL",
-      "Big Data",
-    ],
-
-    mcqs: [
-      {
-        q: "Python is a?",
-        o: [
-          "Programming Language",
-          "Database",
-          "Browser",
-          "OS",
-        ],
-        a: "Programming Language",
-      },
-
-      {
-        q: "Pandas is used for?",
-        o: [
-          "Gaming",
-          "Data Analysis",
-          "Video Editing",
-          "Animation",
-        ],
-        a: "Data Analysis",
       },
     ],
   },
 ];
 
 export default function Home() {
-  const [selectedExam, setSelectedExam] =
-    useState(examData[0]);
+  const [selectedCategory, setSelectedCategory] =
+    useState(platformData[0]);
+
+  const [selectedSubject, setSelectedSubject] =
+    useState(
+      platformData[0].subjects[0]
+    );
+
+  const [answers, setAnswers] =
+    useState<any>({});
+
+  const [score, setScore] =
+    useState(0);
+
+  const handleAnswer = (
+    qIndex: number,
+    option: string,
+    answer: string
+  ) => {
+    if (answers[qIndex]) return;
+
+    const correct = option === answer;
+
+    setAnswers({
+      ...answers,
+
+      [qIndex]: {
+        selected: option,
+        answer,
+      },
+    });
+
+    if (correct) {
+      setScore(score + 1);
+    }
+  };
 
   return (
     <main
       style={{
-        display: "flex",
+        background: "#eaedf2",
+        minHeight: "100vh",
         fontFamily: "Arial",
-        background: "#f3f4f6",
       }}
     >
-      <aside
+      <header
         style={{
-          width: "250px",
-          background: "#020617",
+          background: "#131921",
           color: "white",
-          minHeight: "100vh",
-          padding: "20px",
+          padding: "14px 22px",
+          display: "flex",
+          justifyContent:
+            "space-between",
+          alignItems: "center",
           position: "sticky",
           top: 0,
-          overflowY: "auto",
+          zIndex: 999,
+          overflowX: "auto",
         }}
       >
-        <h1
-          style={{
-            fontSize: "24px",
-            marginBottom: "25px",
-          }}
-        >
-          🚀 Lakshya
-        </h1>
-
-        {examData.map((exam, i) => (
-          <button
-            key={i}
-            onClick={() =>
-              setSelectedExam(exam)
-            }
-            style={{
-              width: "100%",
-              textAlign: "left",
-              background:
-                selectedExam.id === exam.id
-                  ? exam.color
-                  : "#111827",
-              color: "white",
-              border: "none",
-              padding: "14px",
-              marginBottom: "12px",
-              borderRadius: "12px",
-              cursor: "pointer",
-              fontSize: "13px",
-              fontWeight: "bold",
-            }}
-          >
-            {exam.title}
-          </button>
-        ))}
-
         <div
           style={{
-            marginTop: "40px",
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
           }}
         >
-          <h3>Follow Us</h3>
-
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
+              width: "45px",
+              height: "45px",
+              borderRadius: "50%",
+              background: "#ef4444",
             }}
-          >
-            <a href="#">YouTube</a>
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">Blogger</a>
-            <a href="#">Gumroad</a>
-            <a href="#">Amazon KDP</a>
+          />
+
+          <div>
+            <h1
+              style={{
+                margin: 0,
+                fontSize: "28px",
+              }}
+            >
+              Lakshya Academy
+            </h1>
+
+            <p
+              style={{
+                margin: 0,
+                fontSize: "11px",
+                color: "#cbd5e1",
+              }}
+            >
+              India's Premium MCQ Platform
+            </p>
           </div>
         </div>
-      </aside>
 
-      <section
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+          }}
+        >
+          {platformData.map(
+            (item, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setSelectedCategory(
+                    item
+                  );
+
+                  setSelectedSubject(
+                    item.subjects[0]
+                  );
+
+                  setAnswers({});
+
+                  setScore(0);
+                }}
+                style={{
+                  background:
+                    selectedCategory.category ===
+                    item.category
+                      ? item.color
+                      : "#232f3e",
+
+                  color: "white",
+
+                  border: "none",
+
+                  padding:
+                    "10px 16px",
+
+                  borderRadius:
+                    "8px",
+
+                  cursor:
+                    "pointer",
+
+                  fontWeight:
+                    "bold",
+
+                  fontSize:
+                    "12px",
+
+                  whiteSpace:
+                    "nowrap",
+                }}
+              >
+                {item.category}
+              </button>
+            )
+          )}
+        </div>
+      </header>
+
+      <div
         style={{
-          flex: 1,
-          padding: "30px",
+          display: "flex",
         }}
       >
-        <div
+        <aside
           style={{
-            background:
-              "linear-gradient(90deg,#1d4ed8,#7c3aed)",
-            color: "white",
-            padding: "50px",
-            borderRadius: "24px",
-            marginBottom: "30px",
-          }}
-        >
-          <h1
-            style={{
-              fontSize: "52px",
-              marginBottom: "20px",
-            }}
-          >
-            {selectedExam.title}
-          </h1>
-
-          <p
-            style={{
-              fontSize: "18px",
-            }}
-          >
-            India's Premium MCQ Platform
-          </p>
-        </div>
-
-        <div
-          style={{
+            width: "320px",
             background: "white",
-            padding: "30px",
-            borderRadius: "24px",
-            marginBottom: "30px",
+            padding: "24px",
+            borderRight:
+              "1px solid #d1d5db",
+            minHeight: "100vh",
           }}
         >
-          <h2>Subjects</h2>
+          <div
+            style={{
+              background:
+                "linear-gradient(135deg,#001f5c,#1d4ed8,#7c3aed)",
+
+              color: "white",
+
+              borderRadius: "22px",
+
+              padding: "30px",
+
+              marginBottom: "24px",
+            }}
+          >
+            <div
+              style={{
+                background:
+                  "rgba(255,255,255,0.1)",
+
+                display:
+                  "inline-block",
+
+                padding:
+                  "8px 12px",
+
+                borderRadius:
+                  "10px",
+
+                fontSize:
+                  "12px",
+              }}
+            >
+              India's Most
+            </div>
+
+            <h2
+              style={{
+                fontSize: "46px",
+                lineHeight: 1,
+              }}
+            >
+              Advanced
+              <br />
+
+              <span
+                style={{
+                  color:
+                    "#facc15",
+                }}
+              >
+                MCQ Platform
+              </span>
+            </h2>
+
+            <p
+              style={{
+                lineHeight: 1.8,
+              }}
+            >
+              UPPSC • UGC NET • AI •
+              Data Science • Research
+              Methodology
+            </p>
+
+            <button
+              style={{
+                marginTop:
+                  "18px",
+
+                background:
+                  "#facc15",
+
+                border:
+                  "none",
+
+                padding:
+                  "14px 18px",
+
+                borderRadius:
+                  "10px",
+
+                fontWeight:
+                  "bold",
+
+                cursor:
+                  "pointer",
+              }}
+            >
+              🚀 Start Practicing
+            </button>
+          </div>
+
+          <h2
+            style={{
+              color: "#111827",
+            }}
+          >
+            Subjects
+          </h2>
 
           <div
             style={{
               display: "grid",
-              gridTemplateColumns:
-                "repeat(auto-fit,minmax(220px,1fr))",
-              gap: "14px",
-              marginTop: "20px",
+              gap: "10px",
+              marginTop: "18px",
             }}
           >
-            {selectedExam.subjects.map(
+            {selectedCategory.subjects.map(
               (subject, i) => (
-                <a
+                <button
                   key={i}
-                  href="#"
+                  onClick={() => {
+                    setSelectedSubject(
+                      subject
+                    );
+
+                    setAnswers({});
+
+                    setScore(0);
+                  }}
                   style={{
-                    background: "#eff6ff",
-                    padding: "14px",
-                    borderRadius: "12px",
-                    textDecoration: "none",
-                    color: "#111827",
-                    fontWeight: "bold",
-                    fontSize: "14px",
+                    background:
+                      selectedSubject.name ===
+                      subject.name
+                        ? selectedCategory.color
+                        : "#f3f4f6",
+
+                    color:
+                      selectedSubject.name ===
+                      subject.name
+                        ? "white"
+                        : "#111827",
+
+                    border:
+                      "none",
+
+                    padding:
+                      "14px",
+
+                    borderRadius:
+                      "12px",
+
+                    cursor:
+                      "pointer",
+
+                    textAlign:
+                      "left",
+
+                    fontWeight:
+                      "bold",
+
+                    fontSize:
+                      "13px",
                   }}
                 >
-                  {subject}
-                </a>
+                  {subject.name}
+                </button>
               )
             )}
           </div>
-        </div>
 
-        <div
-          style={{
-            background: "white",
-            padding: "30px",
-            borderRadius: "24px",
-          }}
-        >
-          <h2>MCQs</h2>
+          <div
+            style={{
+              marginTop: "40px",
+            }}
+          >
+            <h3>Follow Us</h3>
 
-          {selectedExam.mcqs.map((mcq, i) => (
             <div
-              key={i}
               style={{
-                marginTop: "30px",
-                background: "#f8fafc",
-                padding: "24px",
-                borderRadius: "18px",
+                display: "grid",
+                gap: "10px",
               }}
             >
-              <h3>
-                Q{i + 1}. {mcq.q}
-              </h3>
+              <a href="#">
+                YouTube
+              </a>
 
-              <div
-                style={{
-                  display: "grid",
-                  gap: "12px",
-                  marginTop: "20px",
-                }}
-              >
-                {mcq.o.map((opt, j) => (
-                  <button
-                    key={j}
-                    style={{
-                      background: "white",
-                      border:
-                        "1px solid #d1d5db",
-                      padding: "14px",
-                      borderRadius: "12px",
-                      textAlign: "left",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {opt}
-                  </button>
-                ))}
-              </div>
+              <a href="#">
+                Instagram
+              </a>
 
-              <p
-                style={{
-                  marginTop: "18px",
-                  color: "green",
-                  fontWeight: "bold",
-                }}
-              >
-                Correct Answer: {mcq.a}
-              </p>
+              <a href="#">
+                Facebook
+              </a>
+
+              <a href="#">
+                Blogger
+              </a>
+
+              <a href="#">
+                Gumroad
+              </a>
+
+              <a href="#">
+                Amazon KDP
+              </a>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </aside>
+
+        <section
+          style={{
+            flex: 1,
+            padding: "30px",
+          }}
+        >
+          <div
+            style={{
+              background:
+                "linear-gradient(135deg,#2563eb,#7c3aed)",
+
+              color: "white",
+
+              padding: "40px",
+
+              borderRadius: "24px",
+
+              marginBottom: "24px",
+            }}
+          >
+            <h1
+              style={{
+                fontSize: "52px",
+              }}
+            >
+              {selectedSubject.name}
+            </h1>
+
+            <p
+              style={{
+                fontSize: "18px",
+              }}
+            >
+              Score: {score}/
+              {
+                selectedSubject.mcqs
+                  .length
+              }
+            </p>
+          </div>
+
+          {selectedSubject.mcqs.map(
+            (mcq, qIndex) => (
+              <div
+                key={qIndex}
+                style={{
+                  background:
+                    "white",
+
+                  padding:
+                    "30px",
+
+                  borderRadius:
+                    "22px",
+
+                  marginBottom:
+                    "24px",
+
+                  boxShadow:
+                    "0 0 20px rgba(0,0,0,0.04)",
+                }}
+              >
+                <h2>
+                  Q{qIndex + 1}.{" "}
+                  {mcq.q}
+                </h2>
+
+                <div
+                  style={{
+                    display:
+                      "grid",
+
+                    gap: "14px",
+
+                    marginTop:
+                      "22px",
+                  }}
+                >
+                  {mcq.options.map(
+                    (
+                      option,
+                      i
+                    ) => {
+                      const selected =
+                        answers[
+                          qIndex
+                        ]
+                          ?.selected;
+
+                      const answer =
+                        answers[
+                          qIndex
+                        ]?.answer;
+
+                      let bg =
+                        "white";
+
+                      let color =
+                        "#111827";
+
+                      if (
+                        selected ===
+                          option &&
+                        option ===
+                          answer
+                      ) {
+                        bg =
+                          "#22c55e";
+
+                        color =
+                          "white";
+                      }
+
+                      else if (
+                        selected ===
+                          option &&
+                        option !==
+                          answer
+                      ) {
+                        bg =
+                          "#ef4444";
+
+                        color =
+                          "white";
+                      }
+
+                      else if (
+                        option ===
+                          answer &&
+                        selected
+                      ) {
+                        bg =
+                          "#22c55e";
+
+                        color =
+                          "white";
+                      }
+
+                      return (
+                        <button
+                          key={
+                            i
+                          }
+
+                          onClick={() =>
+                            handleAnswer(
+                              qIndex,
+                              option,
+                              mcq.answer
+                            )
+                          }
+
+                          style={{
+                            background:
+                              bg,
+
+                            color:
+                              color,
+
+                            border:
+                              "1px solid #d1d5db",
+
+                            padding:
+                              "16px",
+
+                            borderRadius:
+                              "14px",
+
+                            cursor:
+                              "pointer",
+
+                            textAlign:
+                              "left",
+
+                            fontWeight:
+                              "bold",
+
+                            fontSize:
+                              "14px",
+                          }}
+                        >
+                          {
+                            option
+                          }
+                        </button>
+                      );
+                    }
+                  )}
+                </div>
+              </div>
+            )
+          )}
+        </section>
+      </div>
     </main>
   );
 }
