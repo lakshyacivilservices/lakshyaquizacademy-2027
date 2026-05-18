@@ -1,488 +1,554 @@
-const uppscPre = [
-  "Ancient History",
-  "Medieval History",
-  "Modern History",
-  "Indian National Movement",
-  "Indian Geography",
-  "World Geography",
-  "Indian Polity",
-  "Governance",
-  "Economy",
-  "Environment & Ecology",
-  "General Science",
-  "Current Affairs",
-  "UP Special",
-  "Hindi Sahitya",
-  "English",
+"use client";
+
+import { useState } from "react";
+
+const menuData = [
+  {
+    title: "UPPSC",
+    color: "#2563eb",
+    sections: {
+      "PRELIMS (GS)": [
+        "History",
+        "Geography",
+        "Indian Polity",
+        "Economy",
+        "Environment",
+        "General Science",
+        "Current Affairs",
+        "UP Special",
+        "Hindi Sahitya",
+      ],
+
+      CSAT: [
+        "Comprehension",
+        "Logical Reasoning",
+        "Decision Making",
+        "Mental Ability",
+        "Basic Numeracy",
+        "Data Interpretation",
+      ],
+    },
+  },
+
+  {
+    title: "UPPSC Mains",
+    color: "#7c3aed",
+    sections: {
+      MAINS: [
+        "General Hindi",
+        "Essay",
+        "GS Paper 1",
+        "GS Paper 2",
+        "GS Paper 3",
+        "GS Paper 4",
+      ],
+    },
+  },
+
+  {
+    title: "UPPSC Interview",
+    color: "#16a34a",
+    sections: {
+      INTERVIEW: [
+        "Personality Test",
+        "Current Affairs",
+        "UP Awareness",
+        "Communication Skills",
+      ],
+    },
+  },
+
+  {
+    title: "UGC NET",
+    color: "#9333ea",
+    sections: {
+      SUBJECTS: [
+        "Teaching & Research Aptitude",
+        "Economics",
+        "Psychology",
+        "Sociology",
+        "Anthropology",
+        "History",
+        "Commerce",
+        "Education",
+        "Management",
+        "Environmental Sciences",
+      ],
+    },
+  },
+
+  {
+    title: "Health Education Officer",
+    color: "#16a34a",
+    sections: {
+      SUBJECTS: [
+        "Health Education",
+        "Public Health",
+        "Community Health",
+        "Family Welfare",
+        "Mental Health",
+        "National Health Programmes",
+        "Nutrition",
+        "Health Communication",
+      ],
+
+      "INTERVIEW SYLLABUS": [
+        "Subject Knowledge",
+        "Communication Skills",
+        "Leadership",
+      ],
+    },
+  },
+
+  {
+    title: "Artificial Intelligence",
+    color: "#2563eb",
+    sections: {
+      SUBJECTS: [
+        "AI Basics",
+        "Machine Learning",
+        "Deep Learning",
+        "Prompt Engineering",
+        "ChatGPT",
+        "AI Ethics",
+      ],
+    },
+  },
+
+  {
+    title: "Data Science",
+    color: "#ea580c",
+    sections: {
+      SUBJECTS: [
+        "Python",
+        "Statistics",
+        "Pandas",
+        "NumPy",
+        "SQL",
+        "Big Data",
+        "Data Visualization",
+      ],
+    },
+  },
+
+  {
+    title: "Research Methodology",
+    color: "#ec4899",
+    sections: {
+      SUBJECTS: [
+        "Research Basics",
+        "Research Design",
+        "Sampling Techniques",
+        "Hypothesis Testing",
+        "SPSS MCQs",
+        "Research Ethics",
+      ],
+    },
+  },
+
+  {
+    title: "GK Tricks",
+    color: "#db2777",
+    sections: {
+      TRICKS: [
+        "History Tricks",
+        "Geography Tricks",
+        "Polity Tricks",
+        "Economy Tricks",
+        "Science Tricks",
+        "Current Affairs Tricks",
+        "UP GK Tricks",
+        "Hindi Sahitya Tricks",
+        "Indian Polity Tricks",
+        "Environment Tricks",
+      ],
+    },
+  },
+
+  {
+    title: "Current Affairs",
+    color: "#0891b2",
+    sections: {
+      CURRENT: [
+        "Daily Current Affairs",
+        "Weekly Current Affairs",
+        "Monthly PDFs",
+        "UP Current Affairs",
+      ],
+    },
+  },
+
+  {
+    title: "NCERT MCQs",
+    color: "#2563eb",
+    sections: {
+      NCERT: [
+        "NCERT History",
+        "NCERT Geography",
+        "NCERT Economy",
+        "NCERT Science",
+        "NCERT Environment",
+      ],
+
+      EXAMS: [
+        "SSC Exams",
+        "Banking Exams",
+        "Railway Exams",
+        "State PCS Exams",
+      ],
+    },
+  },
 ];
-
-const uppscMains = [
-  "General Hindi",
-  "Essay",
-  "GS Paper 1",
-  "GS Paper 2",
-  "GS Paper 3",
-  "GS Paper 4",
-];
-
-const uppscInterview = [
-  "Personality Test",
-  "Current Affairs",
-  "UP Awareness",
-  "Communication Skills",
-];
-
-const ugcNet = [
-  "Teaching & Research Aptitude",
-  "Economics",
-  "Psychology",
-  "Sociology",
-  "Anthropology",
-  "History",
-  "Commerce",
-  "Education",
-  "Management",
-  "Human Resource Management",
-  "Environmental Sciences",
-];
-
-const heo = [
-  "Health Education",
-  "Public Health",
-  "Community Health",
-  "Family Welfare",
-  "Nutrition",
-  "Mental Health",
-  "National Health Programmes",
-  "Sociology",
-  "Social Science",
-  "Health Communication",
-];
-
-const ai = [
-  "AI Basics",
-  "Machine Learning",
-  "Deep Learning",
-  "Prompt Engineering",
-  "ChatGPT",
-  "Generative AI",
-];
-
-const ds = [
-  "Python",
-  "Statistics",
-  "Pandas",
-  "NumPy",
-  "SQL",
-  "Big Data",
-  "Data Visualization",
-];
-
-const research = [
-  "Research Basics",
-  "Research Design",
-  "Sampling",
-  "Hypothesis",
-  "SPSS",
-  "Research Ethics",
-  "Quantitative Research",
-  "Qualitative Research",
-];
-
-const tricks = [
-  "Ancient History Tricks",
-  "Medieval History Tricks",
-  "Modern History Tricks",
-  "Geography Tricks",
-  "Polity Tricks",
-  "Economy Tricks",
-  "Environment Tricks",
-  "Science Tricks",
-  "Current Affairs Tricks",
-  "UP GK Tricks",
-  "Hindi Sahitya Tricks",
-  "English",
-];
-
-const currentAffairs = [
-  "Daily Current Affairs",
-  "Weekly Current Affairs",
-  "Monthly PDFs",
-  "UP Current Affairs",
-];
-
-const ncert = [
-  "NCERT History",
-  "NCERT Geography",
-  "NCERT Polity",
-  "NCERT Economy",
-  "NCERT Science",
-  "NCERT Environment",
-  "English",
-];
-
-function Menu({
-  title,
-  items,
-  color,
-}: {
-  title: string;
-  items: string[];
-  color: string;
-}) {
-  return (
-    <details style={{ position: "relative" }}>
-      <summary
-        style={{
-          cursor: "pointer",
-          fontWeight: "bold",
-          fontSize: "15px",
-          listStyle: "none",
-          padding: "10px 14px",
-          borderRadius: "10px",
-          background: "rgba(255,255,255,0.08)",
-        }}
-      >
-        {title}
-      </summary>
-
-      <div
-        style={{
-          position: "absolute",
-          background: "#111827",
-          color: "white",
-          width: "280px",
-          borderRadius: "18px",
-          padding: "18px",
-          marginTop: "12px",
-          boxShadow:
-            "0 20px 50px rgba(0,0,0,0.45)",
-          zIndex: 999,
-          backdropFilter: "blur(10px)",
-        }}
-      >
-        {items.map((item, i) => (
-          <div
-            key={i}
-            style={{
-              padding: "10px",
-              borderBottom:
-                "1px solid rgba(255,255,255,0.08)",
-              fontWeight: "bold",
-              fontSize: "14px",
-            }}
-          >
-            {item}
-          </div>
-        ))}
-
-        <button
-          style={{
-            width: "100%",
-            marginTop: "16px",
-            background: color,
-            color: "white",
-            border: "none",
-            padding: "14px",
-            borderRadius: "12px",
-            fontWeight: "bold",
-            cursor: "pointer",
-            fontSize: "15px",
-          }}
-        >
-          Start MCQs →
-        </button>
-      </div>
-    </details>
-  );
-}
 
 export default function Home() {
+  const [activeMenu, setActiveMenu] =
+    useState("UPPSC");
+
   return (
     <main
       style={{
-        fontFamily: "Arial",
-        background: "#020617",
+        background: "#f5f7fb",
         minHeight: "100vh",
-        color: "white",
+        fontFamily: "Arial",
       }}
     >
       <header
         style={{
           background:
-            "linear-gradient(90deg,#020617,#172554,#312e81)",
-          padding: "18px 28px",
+            "linear-gradient(90deg,#020617,#0f172a,#172554)",
+          padding: "14px 20px",
           display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
-          flexWrap: "wrap",
-          borderBottom:
-            "1px solid rgba(255,255,255,0.08)",
-          position: "sticky",
-          top: 0,
-          zIndex: 999,
+          justifyContent: "space-between",
+          overflowX: "auto",
+          whiteSpace: "nowrap",
         }}
       >
-        <div>
-          <h1
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+          }}
+        >
+          <div
             style={{
-              margin: 0,
-              fontSize: "38px",
+              width: "44px",
+              height: "44px",
+              borderRadius: "50%",
+              background: "#ef4444",
             }}
-          >
-            🚀 Lakshya Academy
-          </h1>
+          />
 
-          <p
-            style={{
-              margin: 0,
-              color: "#cbd5e1",
-            }}
-          >
-            Premium MCQ Learning Platform
-          </p>
+          <div>
+            <h1
+              style={{
+                color: "white",
+                margin: 0,
+                fontSize: "18px",
+              }}
+            >
+              Lakshya Academy
+            </h1>
+
+            <p
+              style={{
+                color: "#cbd5e1",
+                margin: 0,
+                fontSize: "11px",
+              }}
+            >
+              India's Premium MCQ Platform
+            </p>
+          </div>
         </div>
 
         <div
           style={{
             display: "flex",
-            gap: "14px",
-            flexWrap: "wrap",
-            marginTop: "12px",
+            gap: "8px",
+            marginLeft: "20px",
           }}
         >
-          <Menu
-            title="UPPSC"
-            items={uppscPre}
-            color="#2563eb"
-          />
-
-          <Menu
-            title="UPPSC Mains"
-            items={uppscMains}
-            color="#7c3aed"
-          />
-
-          <Menu
-            title="Interview"
-            items={uppscInterview}
-            color="#16a34a"
-          />
-
-          <Menu
-            title="UGC NET"
-            items={ugcNet}
-            color="#9333ea"
-          />
-
-          <Menu
-            title="Health Education Officer"
-            items={heo}
-            color="#0ea5e9"
-          />
-
-          <Menu
-            title="Artificial Intelligence"
-            items={ai}
-            color="#2563eb"
-          />
-
-          <Menu
-            title="Data Science"
-            items={ds}
-            color="#ea580c"
-          />
-
-          <Menu
-            title="Research Methodology"
-            items={research}
-            color="#ec4899"
-          />
-
-          <Menu
-            title="GK Tricks"
-            items={tricks}
-            color="#db2777"
-          />
-
-          <Menu
-            title="Current Affairs"
-            items={currentAffairs}
-            color="#0891b2"
-          />
-
-          <Menu
-            title="NCERT MCQs"
-            items={ncert}
-            color="#2563eb"
-          />
+          {menuData.map((menu, i) => (
+            <button
+              key={i}
+              onClick={() =>
+                setActiveMenu(menu.title)
+              }
+              style={{
+                background:
+                  activeMenu === menu.title
+                    ? "#1d4ed8"
+                    : "transparent",
+                color: "white",
+                border:
+                  "1px solid rgba(255,255,255,0.1)",
+                padding: "10px 12px",
+                borderRadius: "8px",
+                fontSize: "12px",
+                cursor: "pointer",
+                fontWeight: "bold",
+              }}
+            >
+              {menu.title}
+            </button>
+          ))}
         </div>
       </header>
 
       <section
         style={{
-          padding: "110px 40px",
-          background:
-            "radial-gradient(circle at top,#312e81,#020617)",
-          position: "relative",
-          overflow: "hidden",
+          display: "grid",
+          gridTemplateColumns: "240px 1fr",
+          minHeight: "640px",
         }}
       >
         <div
           style={{
-            maxWidth: "720px",
-            zIndex: 2,
-            position: "relative",
+            background:
+              "linear-gradient(180deg,#001f5c,#001133)",
+            color: "white",
+            padding: "30px 24px",
           }}
         >
           <div
             style={{
               background:
-                "linear-gradient(90deg,#2563eb,#7c3aed)",
+                "rgba(255,255,255,0.08)",
               display: "inline-block",
-              padding: "10px 20px",
-              borderRadius: "30px",
-              marginBottom: "25px",
-              fontWeight: "bold",
+              padding: "8px 14px",
+              borderRadius: "10px",
+              marginBottom: "20px",
+              fontSize: "13px",
             }}
           >
-            INDIA'S #1 EXAM PLATFORM
+            India's Most
           </div>
 
           <h2
             style={{
-              fontSize: "82px",
+              fontSize: "58px",
               lineHeight: 1,
-              marginBottom: "25px",
+              marginBottom: "24px",
             }}
           >
-            Practice Smart.
+            Advanced
             <br />
-            Crack Exams.
+            <span style={{ color: "#facc15" }}>
+              MCQ Platform
+            </span>
           </h2>
 
           <p
             style={{
-              fontSize: "24px",
-              lineHeight: 1.8,
-              color: "#cbd5e1",
+              lineHeight: 1.9,
+              fontSize: "15px",
+              color: "#dbeafe",
             }}
           >
-            UPPSC • UGC NET • AI • Data Science
-            • Current Affairs • NCERT •
-            Research Methodology
+            Prepare for UPPSC, UGC NET,
+            HEO, AI, Data Science and all
+            competitive exams with premium
+            MCQs.
           </p>
 
+          <button
+            style={{
+              marginTop: "30px",
+              background: "#facc15",
+              color: "black",
+              border: "none",
+              padding: "16px 24px",
+              borderRadius: "12px",
+              fontWeight: "bold",
+              fontSize: "15px",
+              cursor: "pointer",
+            }}
+          >
+            🚀 Start Practicing
+          </button>
+        </div>
+
+        <div
+          style={{
+            background: "white",
+            padding: "18px",
+            overflowX: "auto",
+          }}
+        >
           <div
             style={{
               display: "flex",
-              gap: "20px",
-              marginTop: "40px",
-              flexWrap: "wrap",
+              minWidth: "1250px",
             }}
           >
-            <button
-              style={{
-                background:
-                  "linear-gradient(90deg,#2563eb,#7c3aed)",
-                color: "white",
-                border: "none",
-                padding: "18px 34px",
-                borderRadius: "16px",
-                fontWeight: "bold",
-                fontSize: "18px",
-                cursor: "pointer",
-              }}
-            >
-              🚀 Start Practicing
-            </button>
+            {menuData.map((menu, i) => (
+              <div
+                key={i}
+                style={{
+                  width: "220px",
+                  padding: "14px",
+                  borderRight:
+                    "1px solid #e5e7eb",
+                }}
+              >
+                <h2
+                  style={{
+                    color: menu.color,
+                    fontSize: "20px",
+                    marginBottom: "18px",
+                  }}
+                >
+                  {menu.title}
+                </h2>
 
-            <button
-              style={{
-                background: "transparent",
-                color: "white",
-                border:
-                  "1px solid rgba(255,255,255,0.2)",
-                padding: "18px 34px",
-                borderRadius: "16px",
-                fontWeight: "bold",
-                fontSize: "18px",
-                cursor: "pointer",
-              }}
-            >
-              View Courses
-            </button>
+                {Object.entries(
+                  menu.sections
+                ).map(([section, items], j) => (
+                  <div
+                    key={j}
+                    style={{
+                      marginBottom: "22px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        background: "#eff6ff",
+                        display: "inline-block",
+                        padding: "6px 10px",
+                        borderRadius: "8px",
+                        fontSize: "11px",
+                        fontWeight: "bold",
+                        marginBottom: "12px",
+                      }}
+                    >
+                      {section}
+                    </div>
+
+                    {items.map((item, k) => (
+                      <div
+                        key={k}
+                        style={{
+                          padding: "8px 0",
+                          fontSize: "13px",
+                          color: "#111827",
+                          borderBottom:
+                            "1px solid #f3f4f6",
+                        }}
+                      >
+                        • {item}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+
+                <button
+                  style={{
+                    marginTop: "14px",
+                    width: "100%",
+                    background: menu.color,
+                    color: "white",
+                    border: "none",
+                    padding: "12px",
+                    borderRadius: "10px",
+                    fontWeight: "bold",
+                    cursor: "pointer",
+                    fontSize: "13px",
+                  }}
+                >
+                  Explore MCQs →
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section
         style={{
+          background: "white",
+          margin: "20px",
+          borderRadius: "20px",
+          padding: "28px",
           display: "grid",
           gridTemplateColumns:
-            "repeat(auto-fit,minmax(240px,1fr))",
-          gap: "24px",
-          padding: "40px",
+            "repeat(auto-fit,minmax(220px,1fr))",
+          gap: "20px",
         }}
       >
         {[
-          "10,000+ MCQs",
-          "50+ Subjects",
-          "AI Analytics",
-          "Mock Tests",
+          "High Quality MCQs",
+          "Smart Analytics",
+          "Exam Simulation",
+          "Bookmark & Review",
+          "Detailed Reports",
         ].map((item, i) => (
-          <div
-            key={i}
-            style={{
-              background:
-                "linear-gradient(135deg,#111827,#1e293b)",
-              padding: "35px",
-              borderRadius: "24px",
-              textAlign: "center",
-              border:
-                "1px solid rgba(255,255,255,0.08)",
-            }}
-          >
-            <h2>{item}</h2>
+          <div key={i}>
+            <h3
+              style={{
+                color: "#111827",
+              }}
+            >
+              {item}
+            </h3>
 
-            <p style={{ color: "#cbd5e1" }}>
+            <p
+              style={{
+                color: "#6b7280",
+                lineHeight: 1.7,
+              }}
+            >
               Premium learning experience
             </p>
           </div>
         ))}
       </section>
 
+      <section
+        style={{
+          background:
+            "linear-gradient(90deg,#020617,#001f5c)",
+          margin: "20px",
+          borderRadius: "20px",
+          padding: "34px",
+          color: "white",
+          display: "grid",
+          gridTemplateColumns:
+            "repeat(auto-fit,minmax(220px,1fr))",
+          gap: "20px",
+        }}
+      >
+        <div>
+          <h2>10,000+</h2>
+          <p>High Quality MCQs</p>
+        </div>
+
+        <div>
+          <h2>25,000+</h2>
+          <p>Happy Students</p>
+        </div>
+
+        <div>
+          <h2>50+</h2>
+          <p>Subjects Covered</p>
+        </div>
+
+        <div>
+          <h2>99%</h2>
+          <p>Success Rate</p>
+        </div>
+      </section>
+
       <footer
         style={{
-          marginTop: "50px",
           background: "#020617",
-          padding: "40px",
-          borderTop:
-            "1px solid rgba(255,255,255,0.08)",
+          color: "white",
+          padding: "24px",
           textAlign: "center",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "20px",
-            flexWrap: "wrap",
-            marginBottom: "20px",
-          }}
-        >
-          <span>YouTube</span>
-          <span>WhatsApp</span>
-          <span>Instagram</span>
-          <span>Facebook</span>
-          <span>Amazon KDP</span>
-          <span>Gumroad</span>
-        </div>
-
-        <p style={{ color: "#94a3b8" }}>
-          © 2026 Lakshya Civil Services
-          Academy
-        </p>
+        © 2026 Lakshya Academy
       </footer>
     </main>
   );
