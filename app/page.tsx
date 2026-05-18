@@ -1,589 +1,224 @@
-# Premium Lakshya Academy Homepage System
+<header
+  style={{
+    background:
+      "linear-gradient(90deg,#0f172a,#1d4ed8,#7c3aed)",
+    padding: "18px 40px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    position: "sticky",
+    top: 0,
+    zIndex: 1000,
+    color: "white",
+  }}
+>
+  <h1
+    style={{
+      fontSize: "34px",
+      fontWeight: "bold",
+    }}
+  >
+    🚀 Lakshya Academy
+  </h1>
 
-Paste this FULL code into:
+  <div
+    style={{
+      display: "flex",
+      gap: "30px",
+      flexWrap: "wrap",
+    }}
+  >
+    {/* UPPSC */}
 
-```txt
-app/page.tsx
-```
-
-```tsx
-const exams = [
-  {
-    title: "UPPSC",
-    subjects: [
-      "Prelims",
-      "Mains",
-      "Interview",
-      "UP Special",
-      "Hindi Sahitya",
-    ],
-  },
-  {
-    title: "UGC NET",
-    subjects: [
-      "Psychology",
-      "Sociology",
-      "History",
-      "Anthropology",
-      "Commerce",
-      "Education",
-      "Management",
-      "HRM",
-      "Environmental Sciences",
-    ],
-  },
-  {
-    title: "Artificial Intelligence",
-    subjects: [
-      "AI Basics",
-      "Machine Learning",
-      "Deep Learning",
-      "Prompt Engineering",
-    ],
-  },
-  {
-    title: "Data Science",
-    subjects: [
-      "Python",
-      "Statistics",
-      "Pandas",
-      "Data Analytics",
-    ],
-  },
-  {
-    title: "GK Tricks",
-    subjects: [
-      "History Tricks",
-      "Geography Tricks",
-      "Polity Tricks",
-      "Science Tricks",
-    ],
-  },
-];
-
-const mcqs = [
-  {
-    question:
-      "Who is known as the Father of Indian Constitution?",
-    options: [
-      "Mahatma Gandhi",
-      "Dr. B.R. Ambedkar",
-      "Jawaharlal Nehru",
-      "Sardar Patel",
-    ],
-    answer: 1,
-  },
-  {
-    question:
-      "Which river is known as the Ganga of South India?",
-    options: [
-      "Krishna",
-      "Godavari",
-      "Kaveri",
-      "Narmada",
-    ],
-    answer: 1,
-  },
-  {
-    question:
-      "Which Article deals with Fundamental Rights?",
-    options: [
-      "Article 12-35",
-      "Article 40",
-      "Article 370",
-      "Article 360",
-    ],
-    answer: 0,
-  },
-];
-
-export default function Home() {
-  return (
-    <main
-      style={{
-        background: "#071028",
-        minHeight: "100vh",
-        color: "white",
-        fontFamily: "Arial",
-      }}
-    >
-      <header
+    <details>
+      <summary
         style={{
-          background:
-            "linear-gradient(90deg,#0f172a,#1d4ed8,#7c3aed)",
-          padding: "18px 40px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          position: "sticky",
-          top: 0,
-          zIndex: 1000,
-          boxShadow:
-            "0 10px 30px rgba(0,0,0,0.4)",
+          cursor: "pointer",
+          fontWeight: "bold",
+          fontSize: "18px",
         }}
       >
-        <h1
-          style={{
-            fontSize: "34px",
-            fontWeight: "bold",
-          }}
-        >
-          🚀 Lakshya Academy
-        </h1>
+        UPPSC
+      </summary>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "30px",
-            flexWrap: "wrap",
-          }}
-        >
-          {exams.map((exam, index) => (
-            <details
-              key={index}
-              style={{
-                position: "relative",
-              }}
-            >
-              <summary
-                style={{
-                  listStyle: "none",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                }}
-              >
-                {exam.title}
-              </summary>
-
-              <div
-                style={{
-                  position: "absolute",
-                  background: "white",
-                  color: "black",
-                  width: "300px",
-                  borderRadius: "18px",
-                  padding: "15px",
-                  marginTop: "15px",
-                  boxShadow:
-                    "0 20px 40px rgba(0,0,0,0.3)",
-                }}
-              >
-                {exam.subjects.map((subject, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    style={{
-                      display: "block",
-                      padding: "14px",
-                      textDecoration: "none",
-                      color: "#111827",
-                      borderBottom:
-                        "1px solid #e5e7eb",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {subject} MCQs
-                  </a>
-                ))}
-              </div>
-            </details>
-          ))}
-        </div>
-      </header>
-
-      <section
+      <div
         style={{
-          background:
-            "linear-gradient(135deg,#2563eb,#7c3aed,#06b6d4)",
-          padding: "130px 40px",
-          textAlign: "center",
+          position: "absolute",
+          background: "white",
+          color: "black",
+          width: "420px",
+          maxHeight: "550px",
+          overflowY: "auto",
+          borderRadius: "18px",
+          padding: "20px",
+          marginTop: "15px",
         }}
       >
-        <h2
-          style={{
-            fontSize: "78px",
-            marginBottom: "20px",
-          }}
-        >
-          India's Premium MCQ Platform 🎯
-        </h2>
+        <h3>UPPSC PRELIMS</h3>
 
-        <p
-          style={{
-            fontSize: "28px",
-            maxWidth: "1000px",
-            margin: "auto",
-            lineHeight: "1.7",
-          }}
-        >
-          Practice MCQs for UPPSC,
-          UGC NET, Psychology,
-          Sociology, AI, Data Science,
-          Current Affairs and Competitive Exams.
-        </p>
+        <p>History of India & Indian National Movement</p>
+        <p>Indian & World Geography</p>
+        <p>Indian Polity & Governance</p>
+        <p>Economy & Social Development</p>
+        <p>Environment & Ecology</p>
+        <p>General Science</p>
+        <p>Current Affairs</p>
+        <p>UP Special Knowledge</p>
 
-        <div
-          style={{
-            marginTop: "45px",
-            display: "flex",
-            justifyContent: "center",
-            gap: "20px",
-            flexWrap: "wrap",
-          }}
-        >
-          <button
-            style={{
-              background: "#f97316",
-              color: "white",
-              border: "none",
-              padding: "18px 35px",
-              borderRadius: "16px",
-              fontSize: "22px",
-              fontWeight: "bold",
-            }}
-          >
-            Start MCQs
-          </button>
+        <h3>CSAT</h3>
 
-          <button
-            style={{
-              background: "white",
-              color: "#111827",
-              border: "none",
-              padding: "18px 35px",
-              borderRadius: "16px",
-              fontSize: "22px",
-              fontWeight: "bold",
-            }}
-          >
-            Buy Premium eBooks
-          </button>
-        </div>
-      </section>
+        <p>Comprehension</p>
+        <p>Logical Reasoning</p>
+        <p>Mental Ability</p>
+        <p>Decision Making</p>
+        <p>Basic Numeracy</p>
+        <p>Data Interpretation</p>
 
-      <section
+        <h3>UPPSC MAINS</h3>
+
+        <p>General Hindi</p>
+        <p>Essay</p>
+        <p>General Studies I</p>
+        <p>General Studies II</p>
+        <p>General Studies III</p>
+        <p>General Studies IV</p>
+
+        <h3>UPPSC INTERVIEW</h3>
+
+        <p>Personality Test</p>
+
+        <h3>Hindi Sahitya</h3>
+
+        <p>Hindi Literature MCQs</p>
+      </div>
+    </details>
+
+    {/* UGC NET */}
+
+    <details>
+      <summary
         style={{
-          padding: "80px 40px",
+          cursor: "pointer",
+          fontWeight: "bold",
+          fontSize: "18px",
         }}
       >
-        <h2
-          style={{
-            textAlign: "center",
-            fontSize: "52px",
-            marginBottom: "50px",
-          }}
-        >
-          Popular Categories
-        </h2>
+        UGC NET
+      </summary>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(320px,1fr))",
-            gap: "35px",
-          }}
-        >
-          {[
-            "UPPSC",
-            "UGC NET",
-            "Artificial Intelligence",
-            "Data Science",
-            "Current Affairs",
-            "GK Tricks",
-          ].map((item, index) => (
-            <div
-              key={index}
-              style={{
-                background: "#111827",
-                borderRadius: "24px",
-                padding: "35px",
-                boxShadow:
-                  "0 15px 40px rgba(0,0,0,0.3)",
-              }}
-            >
-              <h3
-                style={{
-                  fontSize: "34px",
-                  marginBottom: "20px",
-                }}
-              >
-                {item}
-              </h3>
-
-              <p
-                style={{
-                  color: "#d1d5db",
-                  lineHeight: "1.8",
-                }}
-              >
-                Premium MCQs,
-                Mock Tests,
-                Notes,
-                PYQs,
-                Smart Learning
-                and eBooks.
-              </p>
-
-              <button
-                style={{
-                  marginTop: "25px",
-                  background: "#2563eb",
-                  color: "white",
-                  border: "none",
-                  padding: "14px 25px",
-                  borderRadius: "12px",
-                  fontWeight: "bold",
-                }}
-              >
-                Explore
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section
+      <div
         style={{
-          background: "#0b1220",
-          padding: "80px 40px",
+          position: "absolute",
+          background: "white",
+          color: "black",
+          width: "450px",
+          maxHeight: "550px",
+          overflowY: "auto",
+          borderRadius: "18px",
+          padding: "20px",
+          marginTop: "15px",
         }}
       >
-        <h2
-          style={{
-            textAlign: "center",
-            fontSize: "50px",
-            marginBottom: "50px",
-          }}
-        >
-          Interactive MCQ System ⚡
-        </h2>
+        <p>General Paper on Teaching & Research Aptitude</p>
 
-        <div
-          style={{
-            background: "#111827",
-            borderRadius: "24px",
-            padding: "40px",
-            maxWidth: "1000px",
-            margin: "auto",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "30px",
-              flexWrap: "wrap",
-            }}
-          >
-            <h3>Question 1 of 3</h3>
-            <h3>Score: 10</h3>
-          </div>
+        <p>Economics</p>
+        <p>Rural Economics</p>
+        <p>Co-operation</p>
+        <p>Demography</p>
+        <p>Development Planning</p>
+        <p>Development Studies</p>
+        <p>Econometrics</p>
+        <p>Applied Economics</p>
+        <p>Development Economics</p>
+        <p>Business Economics</p>
 
-          <h2
-            style={{
-              fontSize: "34px",
-              marginBottom: "35px",
-            }}
-          >
-            {mcqs[0].question}
-          </h2>
+        <p>Philosophy</p>
+        <p>Psychology</p>
+        <p>Sociology</p>
+        <p>History</p>
+        <p>Anthropology</p>
+        <p>Commerce</p>
+        <p>Education</p>
 
-          <div
-            style={{
-              display: "grid",
-              gap: "18px",
-            }}
-          >
-            {mcqs[0].options.map((option, i) => (
-              <button
-                key={i}
-                style={{
-                  background: "#1e293b",
-                  color: "white",
-                  border: "1px solid #334155",
-                  padding: "18px",
-                  borderRadius: "14px",
-                  fontSize: "18px",
-                  textAlign: "left",
-                }}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
+        <p>Management</p>
+        <p>Business Administration</p>
+        <p>Marketing Management</p>
+        <p>Industrial Relations</p>
+        <p>Personnel Management</p>
+        <p>Financial Management</p>
+        <p>Co-operative Management</p>
 
-          <div
-            style={{
-              marginTop: "40px",
-              display: "flex",
-              gap: "20px",
-              flexWrap: "wrap",
-            }}
-          >
-            <button
-              style={{
-                background: "#ef4444",
-                color: "white",
-                border: "none",
-                padding: "14px 25px",
-                borderRadius: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Previous
-            </button>
+        <p>Labour Welfare</p>
+        <p>Human Resource Management</p>
 
-            <button
-              style={{
-                background: "#22c55e",
-                color: "white",
-                border: "none",
-                padding: "14px 25px",
-                borderRadius: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Next
-            </button>
+        <p>Environmental Sciences</p>
+      </div>
+    </details>
 
-            <button
-              style={{
-                background: "#2563eb",
-                color: "white",
-                border: "none",
-                padding: "14px 25px",
-                borderRadius: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              Jump Question
-            </button>
-          </div>
-        </div>
-      </section>
+    {/* HEALTH EDUCATION OFFICER */}
 
-      <section
+    <details>
+      <summary
         style={{
-          padding: "80px 40px",
+          cursor: "pointer",
+          fontWeight: "bold",
+          fontSize: "18px",
         }}
       >
-        <h2
-          style={{
-            textAlign: "center",
-            fontSize: "52px",
-            marginBottom: "50px",
-          }}
-        >
-          📚 Premium eBooks Store
-        </h2>
+        Health Education Officer
+      </summary>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(320px,1fr))",
-            gap: "35px",
-          }}
-        >
-          {[
-            "UPPSC Complete Notes",
-            "UGC NET Psychology",
-            "AI & Data Science",
-            "Current Affairs Yearbook",
-          ].map((item, index) => (
-            <div
-              key={index}
-              style={{
-                background: "#111827",
-                padding: "35px",
-                borderRadius: "24px",
-              }}
-            >
-              <h3
-                style={{
-                  fontSize: "32px",
-                  marginBottom: "20px",
-                }}
-              >
-                {item}
-              </h3>
-
-              <p
-                style={{
-                  color: "#d1d5db",
-                  lineHeight: "1.8",
-                }}
-              >
-                Highly professional premium notes,
-                MCQs and smart learning resources.
-              </p>
-
-              <button
-                style={{
-                  marginTop: "25px",
-                  background: "#f97316",
-                  color: "white",
-                  border: "none",
-                  padding: "14px 25px",
-                  borderRadius: "12px",
-                  fontWeight: "bold",
-                }}
-              >
-                Buy Now
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <footer
+      <div
         style={{
-          background: "#0b1220",
-          padding: "70px 40px",
-          textAlign: "center",
+          position: "absolute",
+          background: "white",
+          color: "black",
+          width: "350px",
+          borderRadius: "18px",
+          padding: "20px",
+          marginTop: "15px",
         }}
       >
-        <h2
-          style={{
-            fontSize: "42px",
-          }}
-        >
-          Lakshya Civil Services Academy
-        </h2>
+        <p>Sociology & Social Science</p>
+        <p>Health Education & Public Health</p>
+        <p>Family Welfare & Population Education</p>
+        <p>National Health Programmes</p>
+        <p>Health & Society Awareness</p>
+        <p>Interview Preparation</p>
+      </div>
+    </details>
 
-        <p
-          style={{
-            marginTop: "25px",
-            color: "#d1d5db",
-            lineHeight: "1.8",
-            fontSize: "18px",
-          }}
-        >
-          India's Premium Learning Platform
-          for Competitive Exams,
-          MCQs, Mock Tests,
-          AI Learning and Smart Preparation.
-        </p>
+    {/* CURRENT AFFAIRS */}
 
-        <p
-          style={{
-            marginTop: "35px",
-            color: "#9ca3af",
-          }}
-        >
-          © 2026 Lakshya Academy
-        </p>
-      </footer>
-    </main>
-  );
-}
-```
+    <details>
+      <summary
+        style={{
+          cursor: "pointer",
+          fontWeight: "bold",
+          fontSize: "18px",
+        }}
+      >
+        Daily Current Affairs
+      </summary>
 
-Then:
-
-1. Save file
-2. Commit changes
-3. Wait 1 minute
-4. Refresh website
+      <div
+        style={{
+          position: "absolute",
+          background: "white",
+          color: "black",
+          width: "350px",
+          borderRadius: "18px",
+          padding: "20px",
+          marginTop: "15px",
+        }}
+      >
+        <p>National Current Affairs</p>
+        <p>International Current Affairs</p>
+        <p>UP Current Affairs</p>
+        <p>Economy Updates</p>
+        <p>Science & Technology</p>
+        <p>Sports Current Affairs</p>
+      </div>
+    </details>
+  </div>
+</header>
