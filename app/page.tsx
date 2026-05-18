@@ -1,19 +1,19 @@
 <header
   style={{
-    background:
-      "linear-gradient(90deg,#0f172a,#1d4ed8,#7c3aed)",
-    padding: "18px 40px",
+    background: "#071028",
+    padding: "16px 40px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     position: "sticky",
     top: 0,
     zIndex: 1000,
-    color: "white",
+    borderBottom: "1px solid #1e293b",
   }}
 >
   <h1
     style={{
+      color: "white",
       fontSize: "34px",
       fontWeight: "bold",
     }}
@@ -21,204 +21,205 @@
     🚀 Lakshya Academy
   </h1>
 
-  <div
+  <nav
     style={{
       display: "flex",
-      gap: "30px",
-      flexWrap: "wrap",
+      gap: "28px",
+      color: "white",
+      fontWeight: "bold",
     }}
   >
     {/* UPPSC */}
 
-    <details>
-      <summary
-        style={{
-          cursor: "pointer",
-          fontWeight: "bold",
-          fontSize: "18px",
-        }}
-      >
-        UPPSC
-      </summary>
+    <div
+      style={{
+        position: "relative",
+      }}
+    >
+      <details>
+        <summary
+          style={{
+            cursor: "pointer",
+            listStyle: "none",
+            fontSize: "18px",
+          }}
+        >
+          UPPSC ▼
+        </summary>
 
-      <div
-        style={{
-          position: "absolute",
-          background: "white",
-          color: "black",
-          width: "420px",
-          maxHeight: "550px",
-          overflowY: "auto",
-          borderRadius: "18px",
-          padding: "20px",
-          marginTop: "15px",
-        }}
-      >
-        <h3>UPPSC PRELIMS</h3>
+        <div
+          style={{
+            position: "absolute",
+            top: "40px",
+            left: 0,
+            width: "450px",
+            background: "white",
+            color: "black",
+            borderRadius: "18px",
+            padding: "25px",
+            boxShadow:
+              "0 20px 40px rgba(0,0,0,0.3)",
+            maxHeight: "550px",
+            overflowY: "auto",
+          }}
+        >
+          <h3>UPPSC PRELIMS</h3>
 
-        <p>History of India & Indian National Movement</p>
-        <p>Indian & World Geography</p>
-        <p>Indian Polity & Governance</p>
-        <p>Economy & Social Development</p>
-        <p>Environment & Ecology</p>
-        <p>General Science</p>
-        <p>Current Affairs</p>
-        <p>UP Special Knowledge</p>
+          <p>History</p>
+          <p>Geography</p>
+          <p>Indian Polity</p>
+          <p>Economy</p>
+          <p>Environment</p>
+          <p>General Science</p>
+          <p>Current Affairs</p>
+          <p>UP Special</p>
 
-        <h3>CSAT</h3>
+          <h3>CSAT</h3>
 
-        <p>Comprehension</p>
-        <p>Logical Reasoning</p>
-        <p>Mental Ability</p>
-        <p>Decision Making</p>
-        <p>Basic Numeracy</p>
-        <p>Data Interpretation</p>
+          <p>Comprehension</p>
+          <p>Reasoning</p>
+          <p>Mental Ability</p>
 
-        <h3>UPPSC MAINS</h3>
+          <h3>UPPSC MAINS</h3>
 
-        <p>General Hindi</p>
-        <p>Essay</p>
-        <p>General Studies I</p>
-        <p>General Studies II</p>
-        <p>General Studies III</p>
-        <p>General Studies IV</p>
+          <p>GS Paper 1</p>
+          <p>GS Paper 2</p>
+          <p>GS Paper 3</p>
+          <p>GS Paper 4</p>
 
-        <h3>UPPSC INTERVIEW</h3>
+          <h3>INTERVIEW</h3>
 
-        <p>Personality Test</p>
-
-        <h3>Hindi Sahitya</h3>
-
-        <p>Hindi Literature MCQs</p>
-      </div>
-    </details>
+          <p>Personality Test</p>
+        </div>
+      </details>
+    </div>
 
     {/* UGC NET */}
 
-    <details>
-      <summary
-        style={{
-          cursor: "pointer",
-          fontWeight: "bold",
-          fontSize: "18px",
-        }}
-      >
-        UGC NET
-      </summary>
+    <div
+      style={{
+        position: "relative",
+      }}
+    >
+      <details>
+        <summary
+          style={{
+            cursor: "pointer",
+            listStyle: "none",
+            fontSize: "18px",
+          }}
+        >
+          UGC NET ▼
+        </summary>
 
-      <div
-        style={{
-          position: "absolute",
-          background: "white",
-          color: "black",
-          width: "450px",
-          maxHeight: "550px",
-          overflowY: "auto",
-          borderRadius: "18px",
-          padding: "20px",
-          marginTop: "15px",
-        }}
-      >
-        <p>General Paper on Teaching & Research Aptitude</p>
+        <div
+          style={{
+            position: "absolute",
+            top: "40px",
+            left: 0,
+            width: "420px",
+            background: "white",
+            color: "black",
+            borderRadius: "18px",
+            padding: "25px",
+            boxShadow:
+              "0 20px 40px rgba(0,0,0,0.3)",
+            maxHeight: "550px",
+            overflowY: "auto",
+          }}
+        >
+          <p>Teaching & Research Aptitude</p>
+          <p>Psychology</p>
+          <p>Sociology</p>
+          <p>History</p>
+          <p>Anthropology</p>
+          <p>Commerce</p>
+          <p>Education</p>
+          <p>Management</p>
+          <p>HRM</p>
+          <p>Environmental Sciences</p>
+        </div>
+      </details>
+    </div>
 
-        <p>Economics</p>
-        <p>Rural Economics</p>
-        <p>Co-operation</p>
-        <p>Demography</p>
-        <p>Development Planning</p>
-        <p>Development Studies</p>
-        <p>Econometrics</p>
-        <p>Applied Economics</p>
-        <p>Development Economics</p>
-        <p>Business Economics</p>
+    {/* HEALTH EDUCATION */}
 
-        <p>Philosophy</p>
-        <p>Psychology</p>
-        <p>Sociology</p>
-        <p>History</p>
-        <p>Anthropology</p>
-        <p>Commerce</p>
-        <p>Education</p>
+    <div
+      style={{
+        position: "relative",
+      }}
+    >
+      <details>
+        <summary
+          style={{
+            cursor: "pointer",
+            listStyle: "none",
+            fontSize: "18px",
+          }}
+        >
+          Health Education ▼
+        </summary>
 
-        <p>Management</p>
-        <p>Business Administration</p>
-        <p>Marketing Management</p>
-        <p>Industrial Relations</p>
-        <p>Personnel Management</p>
-        <p>Financial Management</p>
-        <p>Co-operative Management</p>
-
-        <p>Labour Welfare</p>
-        <p>Human Resource Management</p>
-
-        <p>Environmental Sciences</p>
-      </div>
-    </details>
-
-    {/* HEALTH EDUCATION OFFICER */}
-
-    <details>
-      <summary
-        style={{
-          cursor: "pointer",
-          fontWeight: "bold",
-          fontSize: "18px",
-        }}
-      >
-        Health Education Officer
-      </summary>
-
-      <div
-        style={{
-          position: "absolute",
-          background: "white",
-          color: "black",
-          width: "350px",
-          borderRadius: "18px",
-          padding: "20px",
-          marginTop: "15px",
-        }}
-      >
-        <p>Sociology & Social Science</p>
-        <p>Health Education & Public Health</p>
-        <p>Family Welfare & Population Education</p>
-        <p>National Health Programmes</p>
-        <p>Health & Society Awareness</p>
-        <p>Interview Preparation</p>
-      </div>
-    </details>
+        <div
+          style={{
+            position: "absolute",
+            top: "40px",
+            left: 0,
+            width: "360px",
+            background: "white",
+            color: "black",
+            borderRadius: "18px",
+            padding: "25px",
+            boxShadow:
+              "0 20px 40px rgba(0,0,0,0.3)",
+          }}
+        >
+          <p>Public Health</p>
+          <p>Family Welfare</p>
+          <p>National Health Programs</p>
+          <p>Interview Preparation</p>
+        </div>
+      </details>
+    </div>
 
     {/* CURRENT AFFAIRS */}
 
-    <details>
-      <summary
-        style={{
-          cursor: "pointer",
-          fontWeight: "bold",
-          fontSize: "18px",
-        }}
-      >
-        Daily Current Affairs
-      </summary>
+    <div
+      style={{
+        position: "relative",
+      }}
+    >
+      <details>
+        <summary
+          style={{
+            cursor: "pointer",
+            listStyle: "none",
+            fontSize: "18px",
+          }}
+        >
+          Current Affairs ▼
+        </summary>
 
-      <div
-        style={{
-          position: "absolute",
-          background: "white",
-          color: "black",
-          width: "350px",
-          borderRadius: "18px",
-          padding: "20px",
-          marginTop: "15px",
-        }}
-      >
-        <p>National Current Affairs</p>
-        <p>International Current Affairs</p>
-        <p>UP Current Affairs</p>
-        <p>Economy Updates</p>
-        <p>Science & Technology</p>
-        <p>Sports Current Affairs</p>
-      </div>
-    </details>
-  </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "40px",
+            left: 0,
+            width: "320px",
+            background: "white",
+            color: "black",
+            borderRadius: "18px",
+            padding: "25px",
+            boxShadow:
+              "0 20px 40px rgba(0,0,0,0.3)",
+          }}
+        >
+          <p>Daily Current Affairs</p>
+          <p>UP Current Affairs</p>
+          <p>Economy Updates</p>
+          <p>Science & Tech</p>
+        </div>
+      </details>
+    </div>
+  </nav>
 </header>
