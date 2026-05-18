@@ -1,18 +1,116 @@
+# Premium Lakshya Academy Homepage System
+
+Paste this FULL code into:
+
+```txt
+app/page.tsx
+```
+
+```tsx
+const exams = [
+  {
+    title: "UPPSC",
+    subjects: [
+      "Prelims",
+      "Mains",
+      "Interview",
+      "UP Special",
+      "Hindi Sahitya",
+    ],
+  },
+  {
+    title: "UGC NET",
+    subjects: [
+      "Psychology",
+      "Sociology",
+      "History",
+      "Anthropology",
+      "Commerce",
+      "Education",
+      "Management",
+      "HRM",
+      "Environmental Sciences",
+    ],
+  },
+  {
+    title: "Artificial Intelligence",
+    subjects: [
+      "AI Basics",
+      "Machine Learning",
+      "Deep Learning",
+      "Prompt Engineering",
+    ],
+  },
+  {
+    title: "Data Science",
+    subjects: [
+      "Python",
+      "Statistics",
+      "Pandas",
+      "Data Analytics",
+    ],
+  },
+  {
+    title: "GK Tricks",
+    subjects: [
+      "History Tricks",
+      "Geography Tricks",
+      "Polity Tricks",
+      "Science Tricks",
+    ],
+  },
+];
+
+const mcqs = [
+  {
+    question:
+      "Who is known as the Father of Indian Constitution?",
+    options: [
+      "Mahatma Gandhi",
+      "Dr. B.R. Ambedkar",
+      "Jawaharlal Nehru",
+      "Sardar Patel",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Which river is known as the Ganga of South India?",
+    options: [
+      "Krishna",
+      "Godavari",
+      "Kaveri",
+      "Narmada",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Which Article deals with Fundamental Rights?",
+    options: [
+      "Article 12-35",
+      "Article 40",
+      "Article 370",
+      "Article 360",
+    ],
+    answer: 0,
+  },
+];
+
 export default function Home() {
   return (
     <main
       style={{
-        fontFamily: "Arial",
         background: "#071028",
-        color: "white",
         minHeight: "100vh",
+        color: "white",
+        fontFamily: "Arial",
       }}
     >
-      {/* HEADER */}
-
       <header
         style={{
-          background: "#0b1220",
+          background:
+            "linear-gradient(90deg,#0f172a,#1d4ed8,#7c3aed)",
           padding: "18px 40px",
           display: "flex",
           justifyContent: "space-between",
@@ -21,7 +119,7 @@ export default function Home() {
           top: 0,
           zIndex: 1000,
           boxShadow:
-            "0 10px 30px rgba(0,0,0,0.3)",
+            "0 10px 30px rgba(0,0,0,0.4)",
         }}
       >
         <h1
@@ -33,24 +131,66 @@ export default function Home() {
           🚀 Lakshya Academy
         </h1>
 
-        <nav
+        <div
           style={{
             display: "flex",
-            gap: "25px",
-            fontWeight: "bold",
+            gap: "30px",
+            flexWrap: "wrap",
           }}
         >
-          <span>UPPSC</span>
-          <span>UGC NET</span>
-          <span>AI</span>
-          <span>Data Science</span>
-          <span>GK Tricks</span>
-          <span>Current Affairs</span>
-          <span>eBooks</span>
-        </nav>
-      </header>
+          {exams.map((exam, index) => (
+            <details
+              key={index}
+              style={{
+                position: "relative",
+              }}
+            >
+              <summary
+                style={{
+                  listStyle: "none",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                }}
+              >
+                {exam.title}
+              </summary>
 
-      {/* HERO SECTION */}
+              <div
+                style={{
+                  position: "absolute",
+                  background: "white",
+                  color: "black",
+                  width: "300px",
+                  borderRadius: "18px",
+                  padding: "15px",
+                  marginTop: "15px",
+                  boxShadow:
+                    "0 20px 40px rgba(0,0,0,0.3)",
+                }}
+              >
+                {exam.subjects.map((subject, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    style={{
+                      display: "block",
+                      padding: "14px",
+                      textDecoration: "none",
+                      color: "#111827",
+                      borderBottom:
+                        "1px solid #e5e7eb",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {subject} MCQs
+                  </a>
+                ))}
+              </div>
+            </details>
+          ))}
+        </div>
+      </header>
 
       <section
         style={{
@@ -72,21 +212,20 @@ export default function Home() {
         <p
           style={{
             fontSize: "28px",
-            maxWidth: "900px",
+            maxWidth: "1000px",
             margin: "auto",
-            lineHeight: "1.6",
+            lineHeight: "1.7",
           }}
         >
-          Prepare for UPPSC, UGC NET,
-          Psychology, Sociology, AI,
-          Data Science and Competitive Exams
-          with highly professional MCQs,
-          notes and eBooks.
+          Practice MCQs for UPPSC,
+          UGC NET, Psychology,
+          Sociology, AI, Data Science,
+          Current Affairs and Competitive Exams.
         </p>
 
         <div
           style={{
-            marginTop: "50px",
+            marginTop: "45px",
             display: "flex",
             justifyContent: "center",
             gap: "20px",
@@ -99,12 +238,12 @@ export default function Home() {
               color: "white",
               border: "none",
               padding: "18px 35px",
-              borderRadius: "14px",
+              borderRadius: "16px",
+              fontSize: "22px",
               fontWeight: "bold",
-              fontSize: "20px",
             }}
           >
-            Start MCQs →
+            Start MCQs
           </button>
 
           <button
@@ -113,17 +252,15 @@ export default function Home() {
               color: "#111827",
               border: "none",
               padding: "18px 35px",
-              borderRadius: "14px",
+              borderRadius: "16px",
+              fontSize: "22px",
               fontWeight: "bold",
-              fontSize: "20px",
             }}
           >
             Buy Premium eBooks
           </button>
         </div>
       </section>
-
-      {/* EXAM CARDS */}
 
       <section
         style={{
@@ -132,12 +269,12 @@ export default function Home() {
       >
         <h2
           style={{
-            fontSize: "48px",
-            marginBottom: "40px",
             textAlign: "center",
+            fontSize: "52px",
+            marginBottom: "50px",
           }}
         >
-          Popular Exams
+          Popular Categories
         </h2>
 
         <div
@@ -151,24 +288,24 @@ export default function Home() {
           {[
             "UPPSC",
             "UGC NET",
-            "Health Education Officer",
             "Artificial Intelligence",
             "Data Science",
+            "Current Affairs",
             "GK Tricks",
           ].map((item, index) => (
             <div
               key={index}
               style={{
                 background: "#111827",
-                padding: "35px",
                 borderRadius: "24px",
+                padding: "35px",
                 boxShadow:
                   "0 15px 40px rgba(0,0,0,0.3)",
               }}
             >
               <h3
                 style={{
-                  fontSize: "32px",
+                  fontSize: "34px",
                   marginBottom: "20px",
                 }}
               >
@@ -181,10 +318,12 @@ export default function Home() {
                   lineHeight: "1.8",
                 }}
               >
-                Premium MCQs, Notes,
-                PYQs, Mock Tests,
-                Current Affairs and
-                Smart Learning System.
+                Premium MCQs,
+                Mock Tests,
+                Notes,
+                PYQs,
+                Smart Learning
+                and eBooks.
               </p>
 
               <button
@@ -198,14 +337,12 @@ export default function Home() {
                   fontWeight: "bold",
                 }}
               >
-                Explore →
+                Explore
               </button>
             </div>
           ))}
         </div>
       </section>
-
-      {/* FEATURES */}
 
       <section
         style={{
@@ -215,48 +352,117 @@ export default function Home() {
       >
         <h2
           style={{
-            fontSize: "48px",
             textAlign: "center",
+            fontSize: "50px",
             marginBottom: "50px",
           }}
         >
-          Platform Features ⚡
+          Interactive MCQ System ⚡
         </h2>
 
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(250px,1fr))",
-            gap: "30px",
+            background: "#111827",
+            borderRadius: "24px",
+            padding: "40px",
+            maxWidth: "1000px",
+            margin: "auto",
           }}
         >
-          {[
-            "MCQ Practice",
-            "Jump Questions",
-            "Previous Question",
-            "Score System",
-            "Timer",
-            "Bookmark Questions",
-            "Leaderboard",
-            "Daily Current Affairs",
-          ].map((item, index) => (
-            <div
-              key={index}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: "30px",
+              flexWrap: "wrap",
+            }}
+          >
+            <h3>Question 1 of 3</h3>
+            <h3>Score: 10</h3>
+          </div>
+
+          <h2
+            style={{
+              fontSize: "34px",
+              marginBottom: "35px",
+            }}
+          >
+            {mcqs[0].question}
+          </h2>
+
+          <div
+            style={{
+              display: "grid",
+              gap: "18px",
+            }}
+          >
+            {mcqs[0].options.map((option, i) => (
+              <button
+                key={i}
+                style={{
+                  background: "#1e293b",
+                  color: "white",
+                  border: "1px solid #334155",
+                  padding: "18px",
+                  borderRadius: "14px",
+                  fontSize: "18px",
+                  textAlign: "left",
+                }}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+
+          <div
+            style={{
+              marginTop: "40px",
+              display: "flex",
+              gap: "20px",
+              flexWrap: "wrap",
+            }}
+          >
+            <button
               style={{
-                background: "#111827",
-                padding: "30px",
-                borderRadius: "20px",
-                textAlign: "center",
+                background: "#ef4444",
+                color: "white",
+                border: "none",
+                padding: "14px 25px",
+                borderRadius: "12px",
+                fontWeight: "bold",
               }}
             >
-              <h3>{item}</h3>
-            </div>
-          ))}
+              Previous
+            </button>
+
+            <button
+              style={{
+                background: "#22c55e",
+                color: "white",
+                border: "none",
+                padding: "14px 25px",
+                borderRadius: "12px",
+                fontWeight: "bold",
+              }}
+            >
+              Next
+            </button>
+
+            <button
+              style={{
+                background: "#2563eb",
+                color: "white",
+                border: "none",
+                padding: "14px 25px",
+                borderRadius: "12px",
+                fontWeight: "bold",
+              }}
+            >
+              Jump Question
+            </button>
+          </div>
         </div>
       </section>
-
-      {/* EBOOK STORE */}
 
       <section
         style={{
@@ -265,8 +471,8 @@ export default function Home() {
       >
         <h2
           style={{
-            fontSize: "48px",
             textAlign: "center",
+            fontSize: "52px",
             marginBottom: "50px",
           }}
         >
@@ -297,7 +503,7 @@ export default function Home() {
             >
               <h3
                 style={{
-                  fontSize: "30px",
+                  fontSize: "32px",
                   marginBottom: "20px",
                 }}
               >
@@ -310,8 +516,8 @@ export default function Home() {
                   lineHeight: "1.8",
                 }}
               >
-                High quality premium study
-                materials for competitive exams.
+                Highly professional premium notes,
+                MCQs and smart learning resources.
               </p>
 
               <button
@@ -332,18 +538,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-
       <footer
         style={{
           background: "#0b1220",
-          padding: "60px 40px",
+          padding: "70px 40px",
           textAlign: "center",
         }}
       >
         <h2
           style={{
-            fontSize: "38px",
+            fontSize: "42px",
           }}
         >
           Lakshya Civil Services Academy
@@ -351,19 +555,21 @@ export default function Home() {
 
         <p
           style={{
+            marginTop: "25px",
             color: "#d1d5db",
-            marginTop: "20px",
             lineHeight: "1.8",
+            fontSize: "18px",
           }}
         >
-          India's Modern Learning Platform
-          for Competitive Exams & Smart MCQ
-          Preparation.
+          India's Premium Learning Platform
+          for Competitive Exams,
+          MCQs, Mock Tests,
+          AI Learning and Smart Preparation.
         </p>
 
         <p
           style={{
-            marginTop: "30px",
+            marginTop: "35px",
             color: "#9ca3af",
           }}
         >
@@ -373,3 +579,11 @@ export default function Home() {
     </main>
   );
 }
+```
+
+Then:
+
+1. Save file
+2. Commit changes
+3. Wait 1 minute
+4. Refresh website
