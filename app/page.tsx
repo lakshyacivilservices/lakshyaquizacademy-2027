@@ -2,430 +2,202 @@
 
 import { useState } from "react";
 
-const platformData = [
+const exams = [
+  "Home",
+  "UPPSC PRE",
+  "UPPSC MAINS",
+  "UPPSC INTERVIEW",
+  "UGC NET",
+  "Health Education Officer",
+  "Research Methodology",
+  "Artificial Intelligence",
+  "Data Science",
+  "Current Affairs",
+  "GK Tricks",
+  "NCERT MCQs",
+];
+
+const subjects: any = {
+  Home: [
+    "Latest MCQs",
+    "Trending Exams",
+    "Daily Practice",
+    "Premium Tests",
+  ],
+
+  "UPPSC PRE": [
+    "Ancient History",
+    "Medieval History",
+    "Modern History",
+    "Indian Geography",
+    "World Geography",
+    "Indian Polity",
+    "Economy",
+    "Environment",
+    "Science",
+    "Current Affairs",
+    "UP Special",
+    "Hindi Sahitya",
+    "NCERT MCQs",
+  ],
+
+  "UPPSC MAINS": [
+    "General Hindi",
+    "Essay",
+    "GS Paper 1",
+    "GS Paper 2",
+    "GS Paper 3",
+    "GS Paper 4",
+  ],
+
+  "UPPSC INTERVIEW": [
+    "Personality Test",
+    "Current Affairs",
+    "UP Awareness",
+    "Communication Skills",
+  ],
+
+  "UGC NET": [
+    "Psychology",
+    "Sociology",
+    "Anthropology",
+    "Commerce",
+    "Education",
+    "Management",
+    "Environmental Sciences",
+  ],
+
+  "Health Education Officer": [
+    "Health Education",
+    "Public Health",
+    "Nutrition",
+    "Mental Health",
+    "Family Welfare",
+    "Health Communication",
+  ],
+
+  "Research Methodology": [
+    "Research Design",
+    "Sampling",
+    "Hypothesis",
+    "SPSS",
+    "Research Ethics",
+  ],
+
+  "Artificial Intelligence": [
+    "AI Basics",
+    "Machine Learning",
+    "Deep Learning",
+    "ChatGPT",
+  ],
+
+  "Data Science": [
+    "Python",
+    "Statistics",
+    "Pandas",
+    "SQL",
+    "Big Data",
+  ],
+
+  "Current Affairs": [
+    "Daily CA",
+    "Weekly CA",
+    "Monthly CA",
+    "UP Current Affairs",
+  ],
+
+  "GK Tricks": [
+    "History Tricks",
+    "Polity Tricks",
+    "Economy Tricks",
+    "Science Tricks",
+    "UP GK Tricks",
+    "Current Affairs Tricks",
+  ],
+
+  "NCERT MCQs": [
+    "NCERT History",
+    "NCERT Geography",
+    "NCERT Science",
+    "NCERT Economy",
+  ],
+};
+
+const mcqs = [
   {
-    category: "Home",
+    q: "Who founded Maurya Empire?",
 
-    color: "#2563eb",
-
-    subjects: [
-      {
-        name: "Daily MCQs",
-
-        mcqs: [
-          {
-            q: "Capital of India?",
-            options: [
-              "Delhi",
-              "Mumbai",
-              "Lucknow",
-              "Agra",
-            ],
-            answer: "Delhi",
-          },
-
-          {
-            q: "Largest Ocean?",
-            options: [
-              "Pacific",
-              "Indian",
-              "Atlantic",
-              "Arctic",
-            ],
-            answer: "Pacific",
-          },
-
-          {
-            q: "CPU stands for?",
-            options: [
-              "Central Processing Unit",
-              "Computer Program Unit",
-              "Central Program User",
-              "None",
-            ],
-            answer:
-              "Central Processing Unit",
-          },
-
-          {
-            q: "Fastest land animal?",
-            options: [
-              "Lion",
-              "Tiger",
-              "Cheetah",
-              "Horse",
-            ],
-            answer: "Cheetah",
-          },
-
-          {
-            q: "Who wrote Ramayana?",
-            options: [
-              "Kalidas",
-              "Valmiki",
-              "Kabir",
-              "Tulsidas",
-            ],
-            answer: "Valmiki",
-          },
-        ],
-      },
+    options: [
+      "Ashoka",
+      "Chandragupta Maurya",
+      "Harsha",
+      "Kanishka",
     ],
+
+    answer:
+      "Chandragupta Maurya",
   },
 
   {
-    category: "UPPSC",
+    q: "Capital of Uttar Pradesh?",
 
-    color: "#2563eb",
-
-    subjects: [
-      {
-        name: "Ancient History",
-
-        mcqs: [
-          {
-            q: "Founder of Maurya Empire?",
-            options: [
-              "Ashoka",
-              "Chandragupta Maurya",
-              "Harsha",
-              "Kanishka",
-            ],
-            answer:
-              "Chandragupta Maurya",
-          },
-
-          {
-            q: "Who wrote Arthashastra?",
-            options: [
-              "Chanakya",
-              "Kabir",
-              "Kalidas",
-              "None",
-            ],
-            answer: "Chanakya",
-          },
-
-          {
-            q: "Nalanda University was in?",
-            options: [
-              "UP",
-              "Delhi",
-              "Bihar",
-              "MP",
-            ],
-            answer: "Bihar",
-          },
-
-          {
-            q: "Ashoka belonged to?",
-            options: [
-              "Maurya Dynasty",
-              "Gupta Dynasty",
-              "Kushan Dynasty",
-              "Slave Dynasty",
-            ],
-            answer:
-              "Maurya Dynasty",
-          },
-
-          {
-            q: "Vedas are written in?",
-            options: [
-              "Hindi",
-              "Sanskrit",
-              "Pali",
-              "Urdu",
-            ],
-            answer: "Sanskrit",
-          },
-        ],
-      },
-
-      {
-        name: "Indian Geography",
-
-        mcqs: [
-          {
-            q: "Capital of UP?",
-            options: [
-              "Kanpur",
-              "Lucknow",
-              "Agra",
-              "Varanasi",
-            ],
-            answer: "Lucknow",
-          },
-
-          {
-            q: "Largest state in India?",
-            options: [
-              "UP",
-              "Rajasthan",
-              "MP",
-              "Bihar",
-            ],
-            answer: "Rajasthan",
-          },
-
-          {
-            q: "Indian desert?",
-            options: [
-              "Thar",
-              "Sahara",
-              "Gobi",
-              "None",
-            ],
-            answer: "Thar",
-          },
-
-          {
-            q: "Highest mountain peak?",
-            options: [
-              "K2",
-              "Everest",
-              "Kanchenjunga",
-              "Nanda Devi",
-            ],
-            answer: "Everest",
-          },
-
-          {
-            q: "Ganga originates from?",
-            options: [
-              "Gangotri",
-              "Yamunotri",
-              "Badrinath",
-              "Kedarnath",
-            ],
-            answer: "Gangotri",
-          },
-        ],
-      },
+    options: [
+      "Agra",
+      "Kanpur",
+      "Lucknow",
+      "Varanasi",
     ],
+
+    answer: "Lucknow",
   },
 
   {
-    category: "Research Methodology",
+    q: "AI stands for?",
 
-    color: "#ec4899",
-
-    subjects: [
-      {
-        name: "Research Basics",
-
-        mcqs: [
-          {
-            q: "Research starts with?",
-            options: [
-              "Problem",
-              "Book",
-              "Data",
-              "Analysis",
-            ],
-            answer: "Problem",
-          },
-
-          {
-            q: "SPSS is used for?",
-            options: [
-              "Statistics",
-              "Cooking",
-              "Gaming",
-              "Drawing",
-            ],
-            answer: "Statistics",
-          },
-
-          {
-            q: "Hypothesis means?",
-            options: [
-              "Fact",
-              "Assumption",
-              "Law",
-              "Theory",
-            ],
-            answer: "Assumption",
-          },
-
-          {
-            q: "Sampling means?",
-            options: [
-              "Population",
-              "Subset",
-              "Experiment",
-              "Survey",
-            ],
-            answer: "Subset",
-          },
-
-          {
-            q: "Qualitative research uses?",
-            options: [
-              "Words",
-              "Numbers",
-              "Graphs",
-              "Formula",
-            ],
-            answer: "Words",
-          },
-        ],
-      },
-    ],
-  },
-
-  {
-    category: "UGC NET",
-
-    color: "#9333ea",
-
-    subjects: [
-      {
-        name: "Psychology",
-
-        mcqs: [
-          {
-            q: "Who proposed Classical Conditioning?",
-            options: [
-              "Freud",
-              "Pavlov",
-              "Piaget",
-              "Skinner",
-            ],
-            answer: "Pavlov",
-          },
-
-          {
-            q: "IQ stands for?",
-            options: [
-              "Internal Quality",
-              "Intelligence Quotient",
-              "Intelligence Query",
-              "None",
-            ],
-            answer:
-              "Intelligence Quotient",
-          },
-
-          {
-            q: "Father of Psychoanalysis?",
-            options: [
-              "Freud",
-              "Skinner",
-              "Bandura",
-              "Piaget",
-            ],
-            answer: "Freud",
-          },
-
-          {
-            q: "Memory is related to?",
-            options: [
-              "Learning",
-              "Storage",
-              "Recall",
-              "All",
-            ],
-            answer: "All",
-          },
-
-          {
-            q: "Behaviorism was given by?",
-            options: [
-              "Watson",
-              "Freud",
-              "Piaget",
-              "Maslow",
-            ],
-            answer: "Watson",
-          },
-        ],
-      },
-    ],
-  },
-
-  {
-    category:
+    options: [
       "Artificial Intelligence",
-
-    color: "#0ea5e9",
-
-    subjects: [
-      {
-        name: "AI Basics",
-
-        mcqs: [
-          {
-            q: "AI stands for?",
-            options: [
-              "Artificial Intelligence",
-              "Advanced Internet",
-              "Auto Information",
-              "None",
-            ],
-            answer:
-              "Artificial Intelligence",
-          },
-
-          {
-            q: "ChatGPT developed by?",
-            options: [
-              "Google",
-              "OpenAI",
-              "Meta",
-              "Microsoft",
-            ],
-            answer: "OpenAI",
-          },
-
-          {
-            q: "ML means?",
-            options: [
-              "Machine Learning",
-              "Main Logic",
-              "Machine Logic",
-              "None",
-            ],
-            answer:
-              "Machine Learning",
-          },
-
-          {
-            q: "AI works mainly on?",
-            options: [
-              "Data",
-              "Books",
-              "Food",
-              "Music",
-            ],
-            answer: "Data",
-          },
-
-          {
-            q: "Deep Learning uses?",
-            options: [
-              "Neural Networks",
-              "Cooking",
-              "Painting",
-              "Gaming",
-            ],
-            answer:
-              "Neural Networks",
-          },
-        ],
-      },
+      "Auto Internet",
+      "Advanced Input",
+      "None",
     ],
+
+    answer:
+      "Artificial Intelligence",
+  },
+
+  {
+    q: "SPSS is used for?",
+
+    options: [
+      "Statistics",
+      "Cooking",
+      "Gaming",
+      "Drawing",
+    ],
+
+    answer: "Statistics",
+  },
+
+  {
+    q: "Who wrote Arthashastra?",
+
+    options: [
+      "Chanakya",
+      "Kabir",
+      "Kalidas",
+      "None",
+    ],
+
+    answer: "Chanakya",
   },
 ];
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] =
-    useState(platformData[0]);
+  const [selectedExam, setSelectedExam] =
+    useState("Home");
 
   const [selectedSubject, setSelectedSubject] =
-    useState(
-      platformData[0].subjects[0]
-    );
+    useState("Latest MCQs");
 
   const [answers, setAnswers] =
     useState<any>({});
@@ -433,25 +205,24 @@ export default function Home() {
   const [score, setScore] =
     useState(0);
 
-  const handleAnswer = (
+  const checkAnswer = (
     qIndex: number,
     option: string,
     answer: string
   ) => {
     if (answers[qIndex]) return;
 
-    const correct = option === answer;
-
     setAnswers({
       ...answers,
 
       [qIndex]: {
         selected: option,
+
         answer,
       },
     });
 
-    if (correct) {
+    if (option === answer) {
       setScore(score + 1);
     }
   };
@@ -459,24 +230,23 @@ export default function Home() {
   return (
     <main
       style={{
-        background: "#eaedf2",
-        minHeight: "100vh",
         fontFamily: "Arial",
+        background: "#eaeded",
+        minHeight: "100vh",
       }}
     >
       <header
         style={{
           background: "#131921",
           color: "white",
-          padding: "14px 22px",
+          padding: "10px 18px",
           display: "flex",
+          alignItems: "center",
           justifyContent:
             "space-between",
-          alignItems: "center",
           position: "sticky",
           top: 0,
           zIndex: 999,
-          overflowX: "auto",
         }}
       >
         <div
@@ -488,10 +258,10 @@ export default function Home() {
         >
           <div
             style={{
-              width: "45px",
-              height: "45px",
+              width: "38px",
+              height: "38px",
               borderRadius: "50%",
-              background: "#ef4444",
+              background: "#f59e0b",
             }}
           />
 
@@ -499,7 +269,7 @@ export default function Home() {
             <h1
               style={{
                 margin: 0,
-                fontSize: "28px",
+                fontSize: "22px",
               }}
             >
               Lakshya Academy
@@ -508,11 +278,11 @@ export default function Home() {
             <p
               style={{
                 margin: 0,
-                fontSize: "11px",
+                fontSize: "10px",
                 color: "#cbd5e1",
               }}
             >
-              India's Premium MCQ Platform
+              Premium MCQ Platform
             </p>
           </div>
         </div>
@@ -520,60 +290,54 @@ export default function Home() {
         <div
           style={{
             display: "flex",
-            gap: "10px",
+            gap: "8px",
+            overflowX: "auto",
           }}
         >
-          {platformData.map(
-            (item, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  setSelectedCategory(
-                    item
-                  );
+          {exams.map((exam, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setSelectedExam(exam);
 
-                  setSelectedSubject(
-                    item.subjects[0]
-                  );
+                setSelectedSubject(
+                  subjects[exam][0]
+                );
 
-                  setAnswers({});
+                setAnswers({});
 
-                  setScore(0);
-                }}
-                style={{
-                  background:
-                    selectedCategory.category ===
-                    item.category
-                      ? item.color
-                      : "#232f3e",
+                setScore(0);
+              }}
+              style={{
+                background:
+                  selectedExam === exam
+                    ? "#febd69"
+                    : "#232f3e",
 
-                  color: "white",
+                color:
+                  selectedExam === exam
+                    ? "black"
+                    : "white",
 
-                  border: "none",
+                border: "none",
 
-                  padding:
-                    "10px 16px",
+                padding: "8px 12px",
 
-                  borderRadius:
-                    "8px",
+                borderRadius: "6px",
 
-                  cursor:
-                    "pointer",
+                fontSize: "11px",
 
-                  fontWeight:
-                    "bold",
+                fontWeight: "bold",
 
-                  fontSize:
-                    "12px",
+                cursor: "pointer",
 
-                  whiteSpace:
-                    "nowrap",
-                }}
-              >
-                {item.category}
-              </button>
-            )
-          )}
+                whiteSpace:
+                  "nowrap",
+              }}
+            >
+              {exam}
+            </button>
+          ))}
         </div>
       </header>
 
@@ -584,26 +348,26 @@ export default function Home() {
       >
         <aside
           style={{
-            width: "320px",
+            width: "270px",
             background: "white",
-            padding: "24px",
+            minHeight: "100vh",
+            padding: "18px",
             borderRight:
               "1px solid #d1d5db",
-            minHeight: "100vh",
           }}
         >
           <div
             style={{
               background:
-                "linear-gradient(135deg,#001f5c,#1d4ed8,#7c3aed)",
+                "linear-gradient(135deg,#131921,#232f3e)",
+
+              borderRadius: "16px",
+
+              padding: "24px",
 
               color: "white",
 
-              borderRadius: "22px",
-
-              padding: "30px",
-
-              marginBottom: "24px",
+              marginBottom: "20px",
             }}
           >
             <div
@@ -615,139 +379,123 @@ export default function Home() {
                   "inline-block",
 
                 padding:
-                  "8px 12px",
+                  "6px 10px",
 
                 borderRadius:
-                  "10px",
+                  "8px",
 
                 fontSize:
-                  "12px",
+                  "10px",
+
+                marginBottom:
+                  "10px",
               }}
             >
-              India's Most
+              AMAZON STYLE UI
             </div>
 
             <h2
               style={{
-                fontSize: "46px",
-                lineHeight: 1,
+                fontSize: "34px",
+                lineHeight: 1.1,
               }}
             >
-              Advanced
+              Premium
               <br />
-
-              <span
-                style={{
-                  color:
-                    "#facc15",
-                }}
-              >
-                MCQ Platform
-              </span>
+              MCQ Portal
             </h2>
 
             <p
               style={{
-                lineHeight: 1.8,
+                fontSize: "12px",
+                lineHeight: 1.7,
+                color: "#d1d5db",
               }}
             >
               UPPSC • UGC NET • AI •
-              Data Science • Research
-              Methodology
+              Research Methodology •
+              Current Affairs
             </p>
 
             <button
               style={{
-                marginTop:
-                  "18px",
-
-                background:
-                  "#facc15",
-
-                border:
-                  "none",
-
-                padding:
-                  "14px 18px",
-
-                borderRadius:
-                  "10px",
-
-                fontWeight:
-                  "bold",
-
-                cursor:
-                  "pointer",
+                marginTop: "12px",
+                background: "#febd69",
+                border: "none",
+                padding: "12px",
+                borderRadius: "8px",
+                width: "100%",
+                fontWeight: "bold",
+                cursor: "pointer",
               }}
             >
-              🚀 Start Practicing
+              🚀 Start Learning
             </button>
           </div>
 
-          <h2
+          <h3
             style={{
-              color: "#111827",
+              fontSize: "14px",
             }}
           >
             Subjects
-          </h2>
+          </h3>
 
           <div
             style={{
               display: "grid",
-              gap: "10px",
-              marginTop: "18px",
+              gap: "8px",
+              marginTop: "12px",
             }}
           >
-            {selectedCategory.subjects.map(
-              (subject, i) => (
+            {subjects[selectedExam].map(
+              (
+                subject: string,
+                i: number
+              ) => (
                 <button
                   key={i}
-                  onClick={() => {
+                  onClick={() =>
                     setSelectedSubject(
                       subject
-                    );
-
-                    setAnswers({});
-
-                    setScore(0);
-                  }}
+                    )
+                  }
                   style={{
                     background:
-                      selectedSubject.name ===
-                      subject.name
-                        ? selectedCategory.color
+                      selectedSubject ===
+                      subject
+                        ? "#131921"
                         : "#f3f4f6",
 
                     color:
-                      selectedSubject.name ===
-                      subject.name
+                      selectedSubject ===
+                      subject
                         ? "white"
                         : "#111827",
 
                     border:
-                      "none",
+                      "1px solid #e5e7eb",
 
                     padding:
-                      "14px",
+                      "10px",
 
                     borderRadius:
-                      "12px",
-
-                    cursor:
-                      "pointer",
+                      "8px",
 
                     textAlign:
                       "left",
 
+                    fontSize:
+                      "11px",
+
+                    cursor:
+                      "pointer",
+
                     fontWeight:
                       "bold",
-
-                    fontSize:
-                      "13px",
                   }}
                 >
-                  {subject.name}
+                  {subject}
                 </button>
               )
             )}
@@ -755,15 +503,22 @@ export default function Home() {
 
           <div
             style={{
-              marginTop: "40px",
+              marginTop: "30px",
             }}
           >
-            <h3>Follow Us</h3>
+            <h3
+              style={{
+                fontSize: "13px",
+              }}
+            >
+              Follow Us
+            </h3>
 
             <div
               style={{
                 display: "grid",
-                gap: "10px",
+                gap: "8px",
+                marginTop: "10px",
               }}
             >
               <a href="#">
@@ -796,197 +551,184 @@ export default function Home() {
         <section
           style={{
             flex: 1,
-            padding: "30px",
+            padding: "20px",
           }}
         >
           <div
             style={{
               background:
-                "linear-gradient(135deg,#2563eb,#7c3aed)",
+                "linear-gradient(135deg,#232f3e,#131921)",
 
               color: "white",
 
-              padding: "40px",
+              borderRadius: "16px",
 
-              borderRadius: "24px",
+              padding: "30px",
 
-              marginBottom: "24px",
+              marginBottom: "20px",
             }}
           >
             <h1
               style={{
-                fontSize: "52px",
+                fontSize: "38px",
+                marginBottom: "8px",
               }}
             >
-              {selectedSubject.name}
+              {selectedSubject}
             </h1>
 
             <p
               style={{
-                fontSize: "18px",
+                fontSize: "14px",
+                color: "#d1d5db",
               }}
             >
               Score: {score}/
-              {
-                selectedSubject.mcqs
-                  .length
-              }
+              {mcqs.length}
             </p>
           </div>
 
-          {selectedSubject.mcqs.map(
-            (mcq, qIndex) => (
-              <div
-                key={qIndex}
+          {mcqs.map((mcq, qIndex) => (
+            <div
+              key={qIndex}
+              style={{
+                background: "white",
+
+                borderRadius: "16px",
+
+                padding: "22px",
+
+                marginBottom: "18px",
+
+                boxShadow:
+                  "0 2px 10px rgba(0,0,0,0.05)",
+              }}
+            >
+              <h2
                 style={{
-                  background:
-                    "white",
-
-                  padding:
-                    "30px",
-
-                  borderRadius:
-                    "22px",
-
-                  marginBottom:
-                    "24px",
-
-                  boxShadow:
-                    "0 0 20px rgba(0,0,0,0.04)",
+                  fontSize: "16px",
+                  color: "#111827",
                 }}
               >
-                <h2>
-                  Q{qIndex + 1}.{" "}
-                  {mcq.q}
-                </h2>
+                Q{qIndex + 1}. {mcq.q}
+              </h2>
 
-                <div
-                  style={{
-                    display:
-                      "grid",
+              <div
+                style={{
+                  display: "grid",
+                  gap: "10px",
+                  marginTop: "18px",
+                }}
+              >
+                {mcq.options.map(
+                  (option, i) => {
+                    const selected =
+                      answers[qIndex]
+                        ?.selected;
 
-                    gap: "14px",
+                    const answer =
+                      answers[qIndex]
+                        ?.answer;
 
-                    marginTop:
-                      "22px",
-                  }}
-                >
-                  {mcq.options.map(
-                    (
-                      option,
-                      i
-                    ) => {
-                      const selected =
-                        answers[
-                          qIndex
-                        ]
-                          ?.selected;
+                    let bg = "white";
 
-                      const answer =
-                        answers[
-                          qIndex
-                        ]?.answer;
+                    let color =
+                      "#111827";
 
-                      let bg =
-                        "white";
+                    if (
+                      selected ===
+                        option &&
+                      option ===
+                        answer
+                    ) {
+                      bg = "#22c55e";
 
-                      let color =
-                        "#111827";
-
-                      if (
-                        selected ===
-                          option &&
-                        option ===
-                          answer
-                      ) {
-                        bg =
-                          "#22c55e";
-
-                        color =
-                          "white";
-                      }
-
-                      else if (
-                        selected ===
-                          option &&
-                        option !==
-                          answer
-                      ) {
-                        bg =
-                          "#ef4444";
-
-                        color =
-                          "white";
-                      }
-
-                      else if (
-                        option ===
-                          answer &&
-                        selected
-                      ) {
-                        bg =
-                          "#22c55e";
-
-                        color =
-                          "white";
-                      }
-
-                      return (
-                        <button
-                          key={
-                            i
-                          }
-
-                          onClick={() =>
-                            handleAnswer(
-                              qIndex,
-                              option,
-                              mcq.answer
-                            )
-                          }
-
-                          style={{
-                            background:
-                              bg,
-
-                            color:
-                              color,
-
-                            border:
-                              "1px solid #d1d5db",
-
-                            padding:
-                              "16px",
-
-                            borderRadius:
-                              "14px",
-
-                            cursor:
-                              "pointer",
-
-                            textAlign:
-                              "left",
-
-                            fontWeight:
-                              "bold",
-
-                            fontSize:
-                              "14px",
-                          }}
-                        >
-                          {
-                            option
-                          }
-                        </button>
-                      );
+                      color = "white";
                     }
-                  )}
-                </div>
+
+                    else if (
+                      selected ===
+                        option &&
+                      option !==
+                        answer
+                    ) {
+                      bg = "#ef4444";
+
+                      color = "white";
+                    }
+
+                    else if (
+                      option ===
+                        answer &&
+                      selected
+                    ) {
+                      bg = "#22c55e";
+
+                      color = "white";
+                    }
+
+                    return (
+                      <button
+                        key={i}
+                        onClick={() =>
+                          checkAnswer(
+                            qIndex,
+                            option,
+                            mcq.answer
+                          )
+                        }
+                        style={{
+                          background:
+                            bg,
+
+                          color:
+                            color,
+
+                          border:
+                            "1px solid #d1d5db",
+
+                          padding:
+                            "14px",
+
+                          borderRadius:
+                            "10px",
+
+                          cursor:
+                            "pointer",
+
+                          textAlign:
+                            "left",
+
+                          fontSize:
+                            "12px",
+
+                          fontWeight:
+                            "bold",
+                        }}
+                      >
+                        {option}
+                      </button>
+                    );
+                  }
+                )}
               </div>
-            )
-          )}
+            </div>
+          ))}
         </section>
       </div>
+
+      <footer
+        style={{
+          background: "#131921",
+          color: "white",
+          padding: "18px",
+          textAlign: "center",
+          fontSize: "11px",
+        }}
+      >
+        © 2026 Lakshya Academy •
+        Premium MCQ Learning Platform
+      </footer>
     </main>
   );
 }
